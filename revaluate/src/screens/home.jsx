@@ -4,7 +4,7 @@ import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 
 function Home() {
     const { isLoaded } = useLoadScript({
-        googleMapsApiKey: 'AIzaSyBSr4CMX520FqsGWTQvBAcna3wXdQqe2A8',
+        googleMapsApiKey: 'API_KEY',
     });
 
     const neighbourhoodData = [
