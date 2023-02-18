@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+.headerBar{
+    width: 70vh;
+    margin: 1rem 2rem;
+    text-align: left;    
+    display: flex;
+    justify-content: space-between;
+}
+a, a:hover{
+    white-space: nowrap;
+    flex: 1;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    margin-right: 3rem;
+}
+.aboutLink, .insightsLink{
+    margin-left: 11rem;
+    padding-top: 20px;
+}
+.revaluateLink, .revaluateLink:hover{
+    font-weight: 800;
+    font-size: 35px;
+}
