@@ -1,13 +1,14 @@
 import React from 'react';
 import './AboutPage.css'
 import { Grid } from '@mui/material';
+import Header from '../../components/Header/Header';
 
 
 function AboutPage() {
     return (
         <div>
-            <div className='header'>Header</div>
-            <Grid container>
+            <Header/>
+            <Grid container className='about-grid'>
                 <Grid item xs={1}></Grid>
                 <Grid item xs={7}>
                     <p className='about-title'>We are on a mission to help you revaluate your houses</p>
