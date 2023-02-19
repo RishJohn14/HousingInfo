@@ -1,0 +1,40 @@
+p,
+li {
+  text-align: start;
+  padding-bottom: 30px;
+}
+
+.aboutImg {
+  width: fit-content;
+}
+.header {
+  margin-bottom: 40px;
+}
+.about-title {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 80px;
+
+  color: #338579;
+}
+.about-text,
+li {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 35px;
+  line-height: 60px;
+
+  color: #000000;
+}
+.about-minititle {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 61px;
+
+  color: #338579;
+}
