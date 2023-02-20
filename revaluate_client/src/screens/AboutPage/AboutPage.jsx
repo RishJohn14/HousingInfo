@@ -6,7 +6,7 @@ import Header from '../../components/Header/Header';
 
 function AboutPage() {
     return (
-        <div>
+        <div className='about'>
             <Header/>
             <Grid container className='about-grid'>
                 <Grid item xs={1}></Grid>

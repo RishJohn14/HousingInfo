@@ -1,23 +1,27 @@
+.about {
+  width: 100vw;
+}
+
 p,
 li {
   text-align: start;
-  padding-bottom: 30px;
+  padding-bottom: 2rem;
 }
 
 .about-grid {
-  margin-top: 80px;
+  margin-top: 4rem;
 }
 
 .aboutImg {
-  width: fit-content;
+  width: 100%;
 }
 
 .about-title {
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 700;
-  font-size: 60px;
-  line-height: 80px;
+  font-size: 4rem;
+  line-height: 4.5rem;
 
   color: #338579;
 }
@@ -26,8 +30,8 @@ li {
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 300;
-  font-size: 35px;
-  line-height: 60px;
+  font-size: 2rem;
+  line-height: 3rem;
 
   color: #000000;
 }
@@ -35,8 +39,6 @@ li {
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 700;
-  font-size: 50px;
-  line-height: 61px;
-
+  font-size: 3rem;
   color: #338579;
 }
