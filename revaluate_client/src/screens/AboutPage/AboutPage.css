@@ -1,0 +1,44 @@
+.about {
+  width: 100vw;
+}
+
+p,
+li {
+  text-align: start;
+  padding-bottom: 2rem;
+}
+
+.about-grid {
+  margin-top: 4rem;
+}
+
+.aboutImg {
+  width: 100%;
+}
+
+.about-title {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 4rem;
+  line-height: 4.5rem;
+
+  color: #338579;
+}
+.about-text,
+li {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 3rem;
+
+  color: #000000;
+}
+.about-minititle {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3rem;
+  color: #338579;
+}
