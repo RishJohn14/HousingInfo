@@ -7,20 +7,30 @@ function PriceFilterBar(){
    
     const handleChangeMin = (event) => {
         const value = event.target.value;
+        if(value < 0){
+            alert("Invalid, Price entered is negative");
+            return false;
+        }
+        if(value > 10000000){
+            alert("Invalid, Price entered is negative");
+            return false;
+        }
         setMinPrice(value);
+        console.log(value);
       }
     const handleChangeMax = (event) => {
         const value = event.target.value;
+        if(value < 0){
+            alert("Invalid, Price entered is negative");
+            return false;
+        }
+        if(value > 10000000){
+            alert("Invalid, Price entered is negative");
+            return false;
+        }
         setMaxPrice(value);
-      }      
-
-      if(minPrice < 0){
-        alert("Invalid, Price entered is negative");
-    }
-    
-    if(maxPrice > 10000000){
-        alert("Invalid, Price entered exceeds maximum price");
-    }
+        console.log(value);
+      }
       return(
         <div className = 'filterBar'>
             <p>
