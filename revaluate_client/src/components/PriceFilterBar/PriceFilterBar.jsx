@@ -16,7 +16,7 @@ function PriceFilterBar(){
             return false;
         }
         if(value > 10000000){
-            alert("Invalid, Price entered is negative.");
+            alert("Invalid, Price entered exceeds the maximum value.");
             return false;
         }
         setMinPrice(value);
@@ -33,7 +33,7 @@ function PriceFilterBar(){
             return false;
         }
         if(value > 10000000){
-            alert("Invalid, Price entered is negative.");
+            alert("Invalid, Price entered exceeds the maximum value.");
             return false;
         }
         setMaxPrice(value);
