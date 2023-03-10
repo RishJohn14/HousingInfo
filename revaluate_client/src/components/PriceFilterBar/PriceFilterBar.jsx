@@ -7,30 +7,38 @@ function PriceFilterBar(){
    
     const handleChangeMin = (event) => {
         const value = event.target.value;
+        if(isNaN(value) == true ){
+            alert("Invalid, Please enter Numeric values only.");
+            return false;
+        } 
         if(value < 0){
-            alert("Invalid, Price entered is negative");
+            alert("Invalid, Price entered is negative.");
             return false;
         }
         if(value > 10000000){
-            alert("Invalid, Price entered is negative");
+            alert("Invalid, Price entered is negative.");
             return false;
         }
         setMinPrice(value);
         console.log(value);
-      }
+    }
     const handleChangeMax = (event) => {
         const value = event.target.value;
+        if(isNaN(value) == true ){
+            alert("Invalid, Please enter Numeric values only.");
+            return false;
+        } 
         if(value < 0){
-            alert("Invalid, Price entered is negative");
+            alert("Invalid, Price entered is negative.");
             return false;
         }
         if(value > 10000000){
-            alert("Invalid, Price entered is negative");
+            alert("Invalid, Price entered is negative.");
             return false;
         }
         setMaxPrice(value);
         console.log(value);
-      }
+    }
       return(
         <div className = 'filterBar'>
             <p>
