@@ -1,0 +1,11 @@
+.filterBar{
+    margin-left: -1rem;
+    width: 50vw;
+}
+p{
+    display: inline;
+}
+input{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
