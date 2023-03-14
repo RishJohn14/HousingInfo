@@ -1,0 +1,22 @@
+.cardVisible {
+    width: 30%;
+    height: 85%;
+    margin: 5% 1% 1% 2%;
+    padding: 1rem;
+    visibility: visible;
+    background-color: white;
+    position: absolute;
+    z-index: 0;
+}
+
+.cardNotVisible {
+    visibility: hidden;
+}
+
+.closeContainer {
+    text-align: end;
+}
+
+.closeButton:hover {
+    cursor: pointer;
+}

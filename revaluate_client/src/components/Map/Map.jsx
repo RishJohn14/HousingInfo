@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import "./Map.css"
 import { GoogleMap, useLoadScript, MarkerF, InfoWindowF } from '@react-google-maps/api';
+import CloseIcon from '@mui/icons-material/Close';
 
 function Map(){
     const { isLoaded } = useLoadScript({googleMapsApiKey: process.env.REACT_APP_GMAP_API_KEY});
@@ -7,6 +9,12 @@ function Map(){
     const [center, updateCenter] = useState({lat: 1.43, lng: 103.78});
     const [town, updateTown] = useState('Neighbourhood');
     const [selectedPin, updateSelectedPin] = useState();
+    const [cardVisible, updateCardVisibility] = useState(false);
+
+    function handleMarkerPress(idx) {
+        updateSelectedPin(idx);
+        updateCardVisibility(true);
+    }
 
     const transactionData = [
         {
@@ -47,14 +55,19 @@ function Map(){
                     borderRadius: 10,
                 }}
                 center={center}
-                zoom={17}
+                zoom={18}
             >
                 {transactionData.map((data, idx) =>
                 <MarkerF
                     key={idx}
-                    onClick={() => updateSelectedPin(idx)}
+                    onClick={() => handleMarkerPress(idx)}
                     position={{lat: data.lat, lng: data.lng}}
-                ></MarkerF>)}
+                />)}
+                <div className={cardVisible ? "cardVisible" : "cardNotVisible"}>
+                    <div className="closeContainer">
+                        <CloseIcon className="closeButton" onClick={() => updateCardVisibility(false)} />
+                    </div>
+                </div>
             </GoogleMap> }
         </div>
     )
