@@ -53,7 +53,11 @@ with open('data/consolidatedData.csv', mode='a') as file:
     file.close()
 
 #upload content in csv file to mongodb
-mongoConnection = pymongo.MongoClient('mongodb+srv://augustinelee:HI0NxMo7EJnrPIwR@revaluate.axyl5i3.mongodb.net/?retryWrites=true&w=majority', tlsCAFile=certifi.where())
+with open('credentials.csv', mode='r') as file:
+    reader = csv.reader(file)
+    for row in reader:
+        mongoLink = row[0]
+mongoConnection = pymongo.MongoClient(mongoLink, tlsCAFile=certifi.where())
 database = mongoConnection['REvaluate']
 collection = database['transactionsData']
 columnName = ['month','town','flat_type','block','street_name','storey_range','floor_area_sqm','flat_model','lease_commence_date','resale_price','remaining_lease','postal_code','latitude','longitude']
