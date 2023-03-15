@@ -83,16 +83,18 @@ function Map(){
                         className="carousell"
                     >
                         <Carousel.Item>
-                            <p className="roadName">Holland Close</p>
-                            <p className="block">Block 123</p>
-                            <p className="flatType">5-Room Flat</p>
-                            <p className="sellingPriceLabel">Selling Price</p>
-                            <p className="sellingPrice">$850,000</p>
-                            <p className="transactionDetailsLabel">Transaction Details</p>
-                            <p className="transactionDetails">Flat Size</p>
-                            <p className="transactionDetails">Tenure Left</p>
-                            <p className="transactionDetails">Proximity to MRT</p>
-                            <p className="transactionDetails">Year Sold</p>
+                            <div className="carouselItemDiv">
+                                <p className="roadName">Holland Close</p>
+                                <p className="block">Block 123</p>
+                                <p className="flatType">5-Room Flat</p>
+                                <p className="sellingPriceLabel">Selling Price</p>
+                                <p className="sellingPrice">$850,000</p>
+                                <p className="transactionDetailsLabel">Transaction Details</p>
+                                <p className="transactionDetails">Flat Size</p>
+                                <p className="transactionDetails">Tenure Left</p>
+                                <p className="transactionDetails">Proximity to MRT</p>
+                                <p className="transactionDetails">Year Sold</p>
+                            </div>
                         </Carousel.Item>
                         <Carousel.Item>
                             <p className="roadName">Holland Close</p>
