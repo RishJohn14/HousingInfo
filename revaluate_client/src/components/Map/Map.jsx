@@ -89,7 +89,7 @@ function Map(){
                         onSelect={(idx) => {updateActiveCarouselIndex(idx)}}
                         variant="dark"
                         interval={null}
-                        className="carousell"
+                        className="carousel"
                     >
                         <Carousel.Item>
                             <p className="roadName">Holland Close</p>
