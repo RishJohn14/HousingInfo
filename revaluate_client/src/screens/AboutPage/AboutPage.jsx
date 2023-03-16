@@ -15,10 +15,10 @@ function AboutPage() {
                     <p className='about-text'>For most of us, buying or selling a house is the biggest transaction of our lives. Here at HousingInfo, we help you handle it with care.</p>
                     <p className='about-minititle'>Our Services</p>
                     <ul>
-  <li>Help buyers find the estimated cost of a flat type in a neighbourhood</li>
-  <li>Help sellers find an estimated selling price for their house</li>
-  <li>Provide data insights on factors affecting housing prices in a neighbourhood </li>
-</ul>
+                        <li>Help buyers find the estimated cost of a flat type in a neighbourhood</li>
+                        <li>Help sellers find an estimated selling price for their house</li>
+                        <li>Provide data insights on factors affecting housing prices in a neighbourhood </li>
+                    </ul>
                 </Grid>
                 <Grid item xs={4}>
                 <img src={require('./image 17.png')} alt={'about img'} className='aboutImg' />
