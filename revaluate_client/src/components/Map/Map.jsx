@@ -59,7 +59,7 @@ function Map(){
             <GoogleMap
                 mapContainerStyle={{
                     height: '80vh',
-                    width: '80vw',
+                    width: '90vw',
                     margin: 'auto',
                     borderRadius: 10,
                 }}
