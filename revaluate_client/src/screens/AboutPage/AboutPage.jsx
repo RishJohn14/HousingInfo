@@ -9,8 +9,7 @@ function AboutPage() {
         <div className='about'>
             <Header/>
             <Grid container className='about-grid'>
-                <Grid item xs={1}></Grid>
-                <Grid item xs={7}>
+                <Grid item xs={8} className="about-content" >
                     <p className='about-title'>We are on a mission to help you revaluate your houses</p>
                     <p className='about-text'>For most of us, buying or selling a house is the biggest transaction of our lives. Here at HousingInfo, we help you handle it with care.</p>
                     <p className='about-minititle'>Our Services</p>
