@@ -49,11 +49,11 @@ function PriceFilterBar(){
     
     return(
         <div className = 'filterBar'>
-            <p>
+            <p className='filterBarLabel'>
                 Only show transactions between
             </p>
             <input id = "minInputBox" type = 'text' placeholder = 'Minimum value' onChange={(e) => handleChange(e, 'MIN')} ></input>
-            <p>to</p>
+            <p className='filterBarLabel'>to</p>
             <input id = "maxInputBox" type = 'text' placeholder = 'Maximum value' onChange={(e) => handleChange(e, 'MAX')} ></input>
         </div>
     )
