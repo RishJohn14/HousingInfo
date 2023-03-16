@@ -2,8 +2,37 @@ import React, { useState } from "react";
 import "./Map.css"
 import { GoogleMap, useLoadScript, MarkerF } from '@react-google-maps/api';
 import CloseIcon from '@mui/icons-material/Close';
-import { Grid } from '@mui/material';
+import PlaceIcon from '@mui/icons-material/Place';
+import { Grid, requirePropFactory } from '@mui/material';
 import Carousel from 'react-bootstrap/Carousel';
+
+const transactionData = [
+    {
+        neighbourhood: 'Woodlands',
+        lat: 1.43,
+        lng: 103.78,
+    },
+    {
+        neighbourhood: 'Sembawang',
+        lat: 1.43,
+        lng: 103.779,
+    },
+    {
+        neighbourhood: 'Jurong East',
+        lat: 1.43,
+        lng: 103.781,
+    },
+    {
+        neighbourhood: 'Tampines',
+        lat: 1.431,
+        lng: 103.78,
+    },
+    {
+        neighbourhood: 'Orchard',
+        lat: 1.431,
+        lng: 103.781,
+    },
+];
 
 function Map(){
     const { isLoaded } = useLoadScript({googleMapsApiKey: process.env.REACT_APP_GMAP_API_KEY});
@@ -19,33 +48,10 @@ function Map(){
         updateCardVisibility(true);
     }
 
-    const transactionData = [
-        {
-            neighbourhood: 'Woodlands',
-            lat: 1.43,
-            lng: 103.78,
-        },
-        {
-            neighbourhood: 'Sembawang',
-            lat: 1.43,
-            lng: 103.779,
-        },
-        {
-            neighbourhood: 'Jurong East',
-            lat: 1.43,
-            lng: 103.781,
-        },
-        {
-            neighbourhood: 'Tampines',
-            lat: 1.431,
-            lng: 103.78,
-        },
-        {
-            neighbourhood: 'Orchard',
-            lat: 1.431,
-            lng: 103.781,
-        },
-    ];
+    function handleClose() {
+        updateSelectedPin();
+        updateCardVisibility(false);
+    }
 
     return(
         <div className="map">
@@ -65,6 +71,9 @@ function Map(){
                     key={idx}
                     onClick={() => handleMarkerPress(idx)}
                     position={{lat: data.lat, lng: data.lng}}
+                    options={{
+                        icon: selectedPin === idx ? require('./greenPin.png') : require('./redPin.png'),
+                    }}
                 />)}
                 <div className={cardVisible ? "cardVisible" : "cardNotVisible"}>
                     <Grid container>
@@ -72,7 +81,7 @@ function Map(){
                             <p className="swipe">Click next for more transactions in the same block {'>>'}</p>
                         </Grid>
                         <Grid item xs={1}>
-                            <CloseIcon className="closeButton" onClick={() => updateCardVisibility(false)} />
+                            <CloseIcon className="closeButton" onClick={handleClose} />
                         </Grid>
                     </Grid>
                     <Carousel
