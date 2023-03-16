@@ -48,7 +48,7 @@ function Map(){
     ];
 
     return(
-        <div>
+        <div className="map">
             { isLoaded &&
             <GoogleMap
                 mapContainerStyle={{
@@ -68,7 +68,7 @@ function Map(){
                 />)}
                 <div className={cardVisible ? "cardVisible" : "cardNotVisible"}>
                     <Grid container>
-                        <Grid item xs={11}>
+                        <Grid item xs={11} className="swipeDiv">
                             <p className="swipe">Click next for more transactions in the same block {'>>'}</p>
                         </Grid>
                         <Grid item xs={1}>
@@ -83,18 +83,16 @@ function Map(){
                         className="carousell"
                     >
                         <Carousel.Item>
-                            <div className="carouselItemDiv">
-                                <p className="roadName">Holland Close</p>
-                                <p className="block">Block 123</p>
-                                <p className="flatType">5-Room Flat</p>
-                                <p className="sellingPriceLabel">Selling Price</p>
-                                <p className="sellingPrice">$850,000</p>
-                                <p className="transactionDetailsLabel">Transaction Details</p>
-                                <p className="transactionDetails">Flat Size</p>
-                                <p className="transactionDetails">Tenure Left</p>
-                                <p className="transactionDetails">Proximity to MRT</p>
-                                <p className="transactionDetails">Year Sold</p>
-                            </div>
+                            <p className="roadName">Holland Close</p>
+                            <p className="block">Block 123</p>
+                            <p className="flatType">5-Room Flat</p>
+                            <p className="sellingPriceLabel">Selling Price</p>
+                            <p className="sellingPrice">$850,000</p>
+                            <p className="transactionDetailsLabel">Transaction Details</p>
+                            <p className="transactionDetails">Flat Size</p>
+                            <p className="transactionDetails">Tenure Left</p>
+                            <p className="transactionDetails">Proximity to MRT</p>
+                            <p className="transactionDetails">Year Sold</p>
                         </Carousel.Item>
                         <Carousel.Item>
                             <p className="roadName">Holland Close</p>

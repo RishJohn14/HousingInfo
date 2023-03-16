@@ -8,9 +8,7 @@ function DetailsPage() {
         <div>
         <Header/>
         <PriceFilterBar/>
-        <p>Details page</p>
         <Map />
-        <p>end</p>
         </div>
     )
 }
