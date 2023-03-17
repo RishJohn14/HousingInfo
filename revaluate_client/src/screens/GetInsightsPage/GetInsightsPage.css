@@ -1,0 +1,25 @@
+.container-insights {
+    background: linear-gradient(135deg, #00ff00, #0095ff);
+    box-shadow: 0 0 0 10px #fff;
+    height: 100vh;
+    padding: 30px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    border-radius: 20px;
+}
+  
+.grid-item {
+    border-radius: 20px;
+    background-color: #FFF;
+    margin: 20px;
+}
+.big-container{
+    border: 60px solid #fff;
+
+}
+
