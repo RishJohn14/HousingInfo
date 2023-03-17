@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+/*.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }*/
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /*align-items: center;*/
+  }
+
+
+  .left-half {
+    flex-basis: 58%;
+    background-color: rgb(255, 255, 255);
+    border-right: 1px solid black; /* add a border as line partition */
+    height:140vh;
+  }
+  
+  .right-half {
+    /*flex-basis: 50%;
+    background-color: rgb(19, 5, 19);
+    overflow:auto;*/
+    align-items:first baseline;
+    flex-basis: 50%;
+    background-color: hsl(0, 20%, 97%);
+    height:140vh;
+     /* add a border as line partition */
+  }
+
+  /*.right-half {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+
+  .chart-container canvas {
+    height: 100%;
+  }*/
+
+  .Location_Title {
+    font-size: 80px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: #0a0a0a;
+    margin-bottom: 20px;
+  }
+  
+  .Type.of.Flat {
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #080808;
+  }
+
+  selector {
+    margin-top: value;
+  }
+  
+  .Estimated.Price {
+    font-size: 30px;
+    font-family:Arial, Helvetica, sans-serif;
+    color: #4d4a4a;
+    text-align: center;
+    margin-top: 80px
+  }
+  
+  .Price {
+    font-size: 120px;
+    font-weight: bold;
+    color: rgb(79, 150, 152);
+    text-align: center;
+    margin-top: 0px;
+    
+  }
+   
+  /*.bar-container {
+    width: 200px;
+    position: relative;
+  }
+  
+  .line {
+    position: absolute;
+    height: 10px;
+    width: 20px;
+    background-color: black;
+  }
+  
+  .line1 {
+    left: 0;
+    top: 20px;
+  }
+  
+  .line2 {
+    left: 50%;
+    top: 20px;
+  }
+  
+  .line3 {
+    left: 100%;
+    top: 20px;
+  }
+  
+  .price {
+    position: absolute;
+    left: 50%;
+    top: -20px;
+    transform: translateX(-50%);
+  }*/
+  .bar {
+    position: relative;
+    height: 10px;
+    width: 500px;
+    margin: 20px auto;
+    background-color: black;
+  }
+  
+  /*.line {
+    position: absolute;
+    top: 20px;
+    height: 10px;
+    width: 20px;
+    background-color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+  }
+  
+  .line.left {
+    left: calc(50% - 60px);
+  }
+  
+  .line.center {
+    left: calc(50% - 10px);
+  }
+  
+  .line.right {
+    right: calc(50% - 60px);
+  }
+  
+  .price {
+    position: absolute;
+    top: 30px;
+    text-align: center;
+    width: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+  }
+  .bar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 200px;
+  }*/
+  
+  .line {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: #ccc;
+  }
+  
+  .line.left {
+    left: calc(33.33% - 1px);
+  }
+  
+  .line.center {
+    left: calc(50% - 1px);
+  }
+  
+  .line.right {
+    right: calc(33.33% - 1px);
+  }
+  
+  .price1 {
+    position: absolute;
+    font-size: 12px;
+    color: black;
+    bottom: -30px;
+    left: calc(50%-100px);
+  }
+  
+  .price2 {
+    position: absolute;
+    font-size: 12px;
+    color: black;
+    bottom: -30px;
+    left: calc(50% +10px);
+  }
+  
+  .price3 {
+    position: absolute;
+    font-size: 12px;
+    color: black;
+    bottom: -30px;
+    left: calc(50%+00px);
+  }
+  .Features.of.Holland.State {
+    font-size: 25px;
+    margin-top: 10%;
+    font-weight: bold;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+    color: #0a0a0a;
+  }
+  
+  .Features {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #0a0a0a;
+    text-align:center;
+  }
+  
+  .Most.valued {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #0a0a0a;
+  }
+  
+  .streets {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #0a0a0a;
+    text-align: center;
+  }
+  .Title {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 20px 0;
+    color: #000;
+  }
+  .barchart {
+    width: 80%;
+    height:30%;
+  }
+  .Holland {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 20px 0;
+    color: #000;
+  }
+  .Holland1 {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 20px 0;
+    color: #000;
+    text-align: center;
+
+  }
+
+  .chart {
+    width: 80%;
+    height:30%;
+  }
+  .upperpage {
+
+    width: 90%;
+    
+  }
+
+
+  
+
