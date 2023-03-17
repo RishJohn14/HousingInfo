@@ -1,15 +1,16 @@
-.background {
+.container-insights {
     width: 95vw;
     margin: auto;
-    background-color: #151515;
     border-radius: 1rem;
     -webkit-border-radius: 1rem;
     -moz-border-radius: 1rem;
     -ms-border-radius: 1rem;
     -o-border-radius: 1rem;
+    background: linear-gradient(135deg, #00ff00, #0095ff);
+    box-shadow: 0 0 0 10px #fff;
 }
 
-.insightsContainer {
+.grid-item {
     background-color: #FFFFFF;
     margin: 2vh 2vw;
     height: 40vh;

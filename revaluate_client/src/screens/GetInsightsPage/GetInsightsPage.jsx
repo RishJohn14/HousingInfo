@@ -15,10 +15,10 @@ function GetInsightsPage() {
     return (
         <div>
             <Header/>
-            <div className="background" >
+            <div className="container-insights" >
                 <Grid container >
                     <Grid item xs={5}>
-                        <div className='insightsContainer'>
+                        <div className='grid-item'>
                             <Chart
                                 type="bar"
                                 labels={['Bukit Timah', 'Tanjong Pagar', 'Queenstown', 'Holland', 'Buona Vista']}
@@ -37,7 +37,7 @@ function GetInsightsPage() {
                         </div>
                     </Grid>
                     <Grid item xs={7}>
-                        <div className='insightsContainer'>
+                        <div className='grid-item'>
                             <Chart
                                 type="line"
                                 labels={years}
@@ -59,7 +59,7 @@ function GetInsightsPage() {
                 </Grid>
                 <Grid container >
                     <Grid item xs={5}>
-                        <div className='insightsContainer'>
+                        <div className='grid-item'>
                             <Chart
                                 type="bar"
                                 labels={['Jurong West', 'Woodlands', 'Sembawang', 'Yishun', 'Yew Tee']}
@@ -78,7 +78,7 @@ function GetInsightsPage() {
                         </div>
                     </Grid>
                     <Grid item xs={7}>
-                        <div className='insightsContainer'>
+                        <div className='grid-item'>
                             <p className='tableTitle'>Average Housing Transactions for the Past Year</p>
                             <Table striped bordered hover>
                                 <thead className='tableHeader'>
@@ -125,14 +125,6 @@ function GetInsightsPage() {
                         </div>
                     </Grid>
                 </Grid>
-            </div>
-            <div className="big-container">
-            <div className="grid-container container-insights">
-                <div className="grid-item">1</div>
-                <div className="grid-item">2</div>
-                <div className="grid-item">3</div>
-                <div className="grid-item">4</div>
-            </div>
             </div>
         </div>
     )
