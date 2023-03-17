@@ -1,0 +1,35 @@
+.background {
+    width: 95vw;
+    margin: auto;
+    background-color: #151515;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+
+.insightsContainer {
+    background-color: #FFFFFF;
+    margin: 2vh 2vw;
+    height: 40vh;
+    padding: 1rem;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+
+.tableTitle {
+    font-family: "Open Sans";
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0;
+    text-align: center;
+}
+
+.tableHeader {
+    color: rgb(50, 50, 50);
+    background-color: #a9c20a;
+}
