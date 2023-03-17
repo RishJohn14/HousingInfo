@@ -3,7 +3,8 @@ import {useState} from 'react';
 import './HomePage.css'
 import { Stack,Grid,Button,ThemeProvider, createTheme, InputLabel, NativeSelect} from '@mui/material';
 import {ToggleButton,ToggleButtonGroup} from '@mui/material';
-
+import { Grid } from '@mui/material';
+import Header from '../../components/Header/Header';
 
 function HomePage() {
     const[formats, setFormats] = useState()
@@ -21,7 +22,7 @@ function HomePage() {
 
         
         <Grid item xs={7}>
-
+            <Header/>
             <Grid item xs={8}>
             <p style={{fontSize: 50,textAlign: "left", marginTop: '150px', marginLeft:'50px', fontWeight:'bold'}}>
                 <font color = "darkcyan">
@@ -81,10 +82,7 @@ function HomePage() {
                     <Button variant="contained" sx={{borderRadius: 50}}>Get Price</Button>
                     </ThemeProvider>
                 </p>
-
-
             </Grid>
-
         </Grid>
         <Grid item xs={5}>
             <img src={require('./houseVectorImg.png')} alt={'house img'} className='homeImg' />

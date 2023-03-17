@@ -1,0 +1,14 @@
+.filterBar{
+    margin: 1.5rem auto;
+    width: auto;
+}
+
+.filterBarLabel{
+    font-family: 'Open Sans';
+    display: inline;
+}
+
+input{
+    margin-left: 1rem;
+    margin-right: 1rem;
+}

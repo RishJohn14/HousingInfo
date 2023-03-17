@@ -1,0 +1,46 @@
+.about {
+  width: 100vw;
+}
+
+p,
+li {
+  text-align: start;
+  padding-bottom: 2rem;
+}
+
+.about-grid {
+  margin-top: 4rem;
+}
+
+.aboutImg {
+  width: 90%;
+}
+
+.about-title {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 300%;
+
+  color: #338579;
+}
+.about-text,
+li {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 150%;
+
+  color: #000000;
+}
+.about-minititle {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 250%;
+  color: #338579;
+}
+
+.about-content {
+  padding: 0rem 2rem 0rem 6rem;
+}
