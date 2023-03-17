@@ -272,6 +272,23 @@
     
   }
 
+.chartDiv {
+    padding: 1rem 0rem;
+    background: #F6F6F6;
+    text-align: center;
+    border-radius: 5%;
+    -webkit-border-radius: 5%;
+    -moz-border-radius: 5%;
+    -ms-border-radius: 5%;
+    -o-border-radius: 5%;
+    box-shadow: 5px 5px 0px 0px #3c3c3c23;
+}
 
-  
-
+.detailsSeparator {
+    color: orange;
+    font-family: "Open Sans";
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 1rem 0rem;
+}

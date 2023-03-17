@@ -13,15 +13,14 @@ li {
 }
 
 .aboutImg {
-  width: 100%;
+  width: 90%;
 }
 
 .about-title {
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 700;
-  font-size: 4rem;
-  line-height: 4.5rem;
+  font-size: 300%;
 
   color: #338579;
 }
@@ -30,8 +29,7 @@ li {
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 300;
-  font-size: 2rem;
-  line-height: 3rem;
+  font-size: 150%;
 
   color: #000000;
 }
@@ -39,6 +37,10 @@ li {
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 250%;
   color: #338579;
+}
+
+.about-content {
+  padding: 0rem 2rem 0rem 6rem;
 }
