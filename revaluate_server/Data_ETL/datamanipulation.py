@@ -59,17 +59,29 @@ with open('credentials.csv', mode='r') as file:
         mongoLink = row[0]
 mongoConnection = pymongo.MongoClient(mongoLink, tlsCAFile=certifi.where())
 database = mongoConnection['REvaluate']
-collection = database['transactionsData']
+collection = database['transaction']
 columnName = ['month','town','flat_type','block','street_name','storey_range','floor_area_sqm','flat_model','lease_commence_date','resale_price','remaining_lease','postal_code','latitude','longitude']
 with open('data/consolidatedData.csv', mode='r') as file:
     reader = csv.DictReader(file)
     count = 0
     for row in reader:
         count += 1
+        if count <= 233767:
+            continue
         jsonData = {}
         jsonData['_id'] = count
         for col in columnName:
-            jsonData[col] = row[col]
+            if col == 'floor_area_sqm' or col == 'resale_price':
+                jsonData[col] = float(row[col])
+            elif col == 'remaining_lease':
+                jsonData[col] = float(row[col][:2])
+            elif col == 'month':
+                jsonData['month'] = int(row[col][-2:])
+                jsonData['year'] = int(row[col][:4])
+            elif col == 'latitude' or col == 'longitude':
+                jsonData[col] = float(row[col])
+            else:
+                jsonData[col] = row[col]
         try:
             collection.insert_one(jsonData)
         except:
