@@ -1,47 +1,54 @@
+/*
+ * Import dependencies
+ */
 require("dotenv").config();
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGODB_LINK);
 
-const schema = new mongoose.Schema(
-  {
-    _id: { type: Number, required: true },
-    month: { type: Number, required: true },
-    year: { type: Number, required: true },
-    town: { type: String, required: true },
-    flat_type: { type: String, required: true },
-    block: { type: String, required: true },
-    street_name: { type: String, required: true },
-    storey_range: { type: String, required: true },
-    floor_area_sqm: { type: Number, required: true },
-    flat_model: { type: String, required: true },
-    lease_commence_date: { type: Number, required: true },
-    resale_price: { type: Number, required: true },
-    remaining_lease: { type: Number, required: true },
-    postal_code: { type: String, required: true },
-    latitude: { type: Number, required: true },
-    longitude: { type: Number, required: true },
-  },
-  { collection: "transaction" }
-);
-schema.index({ town: 1, flat_type: 1 });
-
-const model = mongoose.model("transaction", schema);
-
+/*
+ * Server initialisation
+ */
 const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-
-app.get("/", (req, res) => {
-  res.send("hello");
+app.listen(process.env.PORT, () => {
+    console.log(`Express server is up`);
 });
 
+/*
+ * Models
+ */
+const houseData = require("./Models/HouseData");
+const chart = require("./Models/Chart");
+const infoCard = require("./Models/InfoCard");
+const map = require("./Models/Map");
+const pin = require("./Models/Pin");
+const searchForm = require("./Models/SearchForm");
+
+/*
+ * Controllers
+ */
+app.get("/", (req, res) => {
+  res.send("Welcome to REvaluate Server");
+});
+
+//search manager
+app.get("/search", (req, res) => {
+    res.send("Search Manager");
+});
+
+//chart manager
+app.get("/chart", (req, res) => {
+    res.send("Chart Manager");
+});
+
+//details manager
 app.get("/details", async (req, res) => {
-  model
+  houseData
     .find(
       { town: "ANG MO KIO", flat_type: "5 ROOM" },
       {
@@ -114,8 +121,9 @@ app.get("/details", async (req, res) => {
     }); /* cannot be found */
 });
 
+//map manager
 app.get("/map", async (req, res) => {
-  await model
+  await houseData
     .aggregate([
       {
         $group: {
@@ -131,9 +139,4 @@ app.get("/map", async (req, res) => {
     .catch((err) => {
       console.log(err);
     }); /* cannot be found */
-});
-
-app.listen(process.env.PORT, () => {
-  console.log(process.env.PORT);
-  console.log(`Express server is up`);
 });
