@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./DetailsPage.css";
 import Header from "../../components/Header/Header";
 import Map from "../../components/Map/Map";
 import PriceFilterBar from "../../components/PriceFilterBar/PriceFilterBar";
 import Chart from "../../components/Chart/Chart";
 import { Grid } from "@mui/material";
+import Axios from "axios";
 
 function DetailsPage() {
   const currentYear = new Date().getFullYear();
@@ -13,6 +14,19 @@ function DetailsPage() {
     years.push(currentYear - 10 + i);
   }
 
+  const [town, updateTown] = useState();
+  const [detailsData, updateDetailsData] = useState([]);
+
+  function getDetailsData() {
+    Axios.get("http://localhost:3001/details")
+    .then((res) => updateDetailsData(res.data))
+    .catch((err) => console.log("error"))
+  }
+
+  useEffect(() => {
+    getDetailsData();
+  }, []);
+
   return (
     <div>
       <Header />
@@ -20,43 +34,42 @@ function DetailsPage() {
         <Grid item xs={7}>
           <div className="left-half">
             <p className="Location_Title">
-              Holland Estate
+              Ang Mo Kio Estate
             </p>
             <p className="TypeofFlat">5-Room Flat</p>
             <p className="Estimated Price">Est Price</p>
-            <p className="Price">$700,000</p>
+            <p className="Price">${detailsData["50th_percentile_price"]}</p>
             <div className="bar">
               <div className="line left">
-                <div className="price1">$500,000</div>
+                <div className="price1">${detailsData["25th_percentile_price"]}</div>
               </div>
               <div className="line center">
-                <div className="price2">$700,000</div>
+                <div className="price2">${detailsData["50th_percentile_price"]}</div>
               </div>
               <div className="line right">
-                <div className="price3">$1,000,000</div>
+                <div className="price3">${detailsData["75th_percentile_price"]}</div>
               </div>
             </div>
             <h1
               className="Features of Holland State"
             >
-              Features of Holland Estate
+              Features of Ang Mo Kio Estate
             </h1>
             <p className="Features">
-              Average Distance from flat to mrt:<br></br>
-              Most common flat type Trasnacted:<br></br>
-              Average Tenure left during transaction:<br></br>
-              Average resale flat size:
+              Average Remaining Lease: {detailsData["avg_remaining_lease"]}<br></br>
+              Average House Age: {detailsData["avg_house_age"]}<br></br>
+              Average Resale Flat Size: {detailsData["avg_flat_size"]}<br></br>
             </p>
             <h1 className="Most valued">
-              Most Valued streets in Holland Estate
+              Most Valued streets in Ang Mo Kio Estate
             </h1>
-            <p className="streets">
-              1. Holland Drive <br></br>
-              &nbsp;&nbsp;&nbsp;2. Holland Avenue <br></br>
-              3. Holland Close <br></br>
-              4. Holland Grove <br></br>
-              5. Holland Road <br></br>
-            </p>
+            <div className="streets">
+              <p>1. {detailsData?.most_common_street?.length > 0 ? detailsData?.most_common_street[0][0] : ''}</p>
+              <p>2. {detailsData?.most_common_street?.length > 0 ? detailsData?.most_common_street[1][0] : ''}</p>
+              <p>3. {detailsData?.most_common_street?.length > 0 ? detailsData?.most_common_street[2][0] : ''}</p>
+              <p>4. {detailsData?.most_common_street?.length > 0 ? detailsData?.most_common_street[3][0] : ''}</p>
+              <p>5. {detailsData?.most_common_street?.length > 0 ? detailsData?.most_common_street[4][0] : ''}</p>
+            </div>
           </div>
         </Grid>
         <Grid item xs={5} padding={3}>
