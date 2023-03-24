@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import Header from "../../components/Header/Header";
+import SwitchButton from "../../components/SwitchButton/SwitchButton";
 
 function HomePage() {
   const [formats, setFormats] = useState();
@@ -52,6 +53,7 @@ function HomePage() {
                 </ToggleButton>
                 </ToggleButtonGroup>
             </Stack>
+            <SwitchButton />
             <div className="home-dropdown-box">
                 <InputLabel htmlFor="select1">
                 Housing District

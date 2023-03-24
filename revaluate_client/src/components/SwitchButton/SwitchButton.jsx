@@ -7,9 +7,9 @@ function SwitchButton() {
 
     return <motion.div animate className={selected ? "switchButton on" : "switchButton off"} onClick={() => updateSelected(!selected)}>
         <motion.div animate>
-            <div className="text">
-            </div>
+            <p className="text">BUY A HOUSE</p>
         </motion.div>
+        <p className="unselected-text">SELL A HOUSE</p>
     </motion.div>
 }
 

@@ -41,18 +41,6 @@ app.get("/", (req, res) => {
 });
 
 app.get("/details", async (req, res) => {
-//   const e = await model
-//     .find(
-//       { town: "HOLLAND", flat_type: "3 ROOM" },
-//       {
-//         flat_type: 1,
-//         floor_area_sqm: 1,
-//         resale_price: 1,
-//         remaining_lease: 1,
-//         street_name: 1,
-//       }
-//     )
-//     .explain();
   model
     .find(
       { town: "ANG MO KIO", flat_type: "5 ROOM" },

@@ -6,38 +6,10 @@ import { Grid } from '@mui/material';
 import Carousel from 'react-bootstrap/Carousel';
 import Axios from 'axios';
 
-const transactionData = [
-    {
-        neighbourhood: 'Woodlands',
-        lat: 1.3082,
-        lng: 103.793,
-    },
-    {
-        neighbourhood: 'Sembawang',
-        lat: 1.309,
-        lng: 103.79377,
-    },
-    {
-        neighbourhood: 'Jurong East',
-        lat: 1.3093,
-        lng: 103.795,
-    },
-    {
-        neighbourhood: 'Tampines',
-        lat: 1.309,
-        lng: 103.796,
-    },
-    {
-        neighbourhood: 'Orchard',
-        lat: 1.3075,
-        lng: 103.7948,
-    },
-];
-
 function Map(){
     const { isLoaded } = useLoadScript({googleMapsApiKey: process.env.REACT_APP_GMAP_API_KEY});
 
-    const [center, updateCenter] = useState({lat: 1.308, lng: 103.793});
+    const [center, updateCenter] = useState({lat: 1.3691, lng: 103.8454});
     const [town, updateTown] = useState('Neighbourhood');
     const [mapData, updateMapData] = useState([]);
     const [selectedPin, updateSelectedPin] = useState();

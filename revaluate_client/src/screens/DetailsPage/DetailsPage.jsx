@@ -63,14 +63,13 @@ function DetailsPage() {
             <h1 className="Most valued">
               Most Valued streets in Ang Mo Kio Estate
             </h1>
-            {/* <p className="streets">
-              {detailsData["most_common_street"]?.map((idx, data) => <p key={idx}>1. {data[0]}</p>)}
-            </p> */}
-            <p>1. {detailsData?.most_common_street[0]}</p>
-            <p>2. {detailsData?.most_common_street[1]}</p>
-            <p>3. {detailsData?.most_common_street[2]}</p>
-            <p>4. {detailsData?.most_common_street[3]}</p>
-            <p>5. {detailsData?.most_common_street[4]}</p>
+            <div className="streets">
+              <p>1. {detailsData?.most_common_street?.length > 0 ? detailsData?.most_common_street[0][0] : ''}</p>
+              <p>2. {detailsData?.most_common_street?.length > 0 ? detailsData?.most_common_street[1][0] : ''}</p>
+              <p>3. {detailsData?.most_common_street?.length > 0 ? detailsData?.most_common_street[2][0] : ''}</p>
+              <p>4. {detailsData?.most_common_street?.length > 0 ? detailsData?.most_common_street[3][0] : ''}</p>
+              <p>5. {detailsData?.most_common_street?.length > 0 ? detailsData?.most_common_street[4][0] : ''}</p>
+            </div>
           </div>
         </Grid>
         <Grid item xs={5} padding={3}>
