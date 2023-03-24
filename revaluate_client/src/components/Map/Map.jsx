@@ -1,47 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Map.css"
 import { GoogleMap, useLoadScript, MarkerF } from '@react-google-maps/api';
 import CloseIcon from '@mui/icons-material/Close';
-import PlaceIcon from '@mui/icons-material/Place';
-import { Grid, requirePropFactory } from '@mui/material';
+import { Grid } from '@mui/material';
 import Carousel from 'react-bootstrap/Carousel';
-
-const transactionData = [
-    {
-        neighbourhood: 'Woodlands',
-        lat: 1.3082,
-        lng: 103.793,
-    },
-    {
-        neighbourhood: 'Sembawang',
-        lat: 1.309,
-        lng: 103.79377,
-    },
-    {
-        neighbourhood: 'Jurong East',
-        lat: 1.3093,
-        lng: 103.795,
-    },
-    {
-        neighbourhood: 'Tampines',
-        lat: 1.309,
-        lng: 103.796,
-    },
-    {
-        neighbourhood: 'Orchard',
-        lat: 1.3075,
-        lng: 103.7948,
-    },
-];
+import Axios from 'axios';
 
 function Map(){
     const { isLoaded } = useLoadScript({googleMapsApiKey: process.env.REACT_APP_GMAP_API_KEY});
 
-    const [center, updateCenter] = useState({lat: 1.308, lng: 103.793});
+    const [center, updateCenter] = useState({lat: 1.3691, lng: 103.8454});
     const [town, updateTown] = useState('Neighbourhood');
+    const [mapData, updateMapData] = useState([]);
     const [selectedPin, updateSelectedPin] = useState();
     const [cardVisible, updateCardVisibility] = useState(false);
     const [activeCarouselIndex, updateActiveCarouselIndex] = useState(0);
+
+    useEffect(() => {
+        getMapData();
+    }, []);
+
+    function getMapData() {
+        Axios.get('http://localhost:3001/map')
+        .then((res) => updateMapData(res.data))
+        .catch((err) => console.log('error occured'))
+    }
 
     function handleMarkerPress(idx) {
         updateSelectedPin(idx);
@@ -58,7 +41,7 @@ function Map(){
             { isLoaded &&
             <GoogleMap
                 mapContainerStyle={{
-                    height: '80vh',
+                    height: '95vh',
                     width: '90vw',
                     margin: 'auto',
                     borderRadius: 10,
@@ -66,11 +49,11 @@ function Map(){
                 center={center}
                 zoom={18}
             >
-                {transactionData.map((data, idx) =>
+                {mapData.map((data, idx) =>
                 <MarkerF
                     key={idx}
                     onClick={() => handleMarkerPress(idx)}
-                    position={{lat: data.lat, lng: data.lng}}
+                    position={{lat: data._id, lng: data.longitude[0]}}
                     options={{
                         icon: selectedPin === idx ? require('./greenPin.png') : require('./redPin.png'),
                     }}
