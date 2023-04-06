@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import React, { useState } from 'react';
 import './PriceFilterBar.css';
 
@@ -46,7 +47,7 @@ function PriceFilterBar(){
         console.log("min value = " + minPrice);
         console.log("max value = " + maxPrice);
     }
-    
+
     return(
         <div className = 'filterBar'>
             <p className='filterBarLabel'>
@@ -55,6 +56,7 @@ function PriceFilterBar(){
             <input id = "minInputBox" type = 'text' placeholder = 'Minimum value' onChange={(e) => handleChange(e, 'MIN')} ></input>
             <p className='filterBarLabel'>to</p>
             <input id = "maxInputBox" type = 'text' placeholder = 'Maximum value' onChange={(e) => handleChange(e, 'MAX')} ></input>
+            <Button variant="outlined" style={{color: 'grey', borderColor: 'grey'}}>Filter</Button>
         </div>
     )
 }

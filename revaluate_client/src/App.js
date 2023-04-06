@@ -4,6 +4,7 @@ import HomePage from './screens/HomePage/HomePage';
 import DetailsPage from './screens/DetailsPage/DetailsPage';
 import AboutPage from './screens/AboutPage/AboutPage';
 import GetInsightsPage from './screens/GetInsightsPage/GetInsightsPage';
+import LoginPage from './screens/LoginPage/LoginPage';
 import NotFoundPage from './screens/NotFoundPage/NotFoundPage';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path='/details' element={<DetailsPage />} />
           <Route path='/about' element={<AboutPage />} />
           <Route path='/insights' element={<GetInsightsPage />} />
+          <Route path='/login' element={<LoginPage />} />
           <Route path='/*' element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>

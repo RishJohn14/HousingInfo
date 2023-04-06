@@ -1,16 +1,25 @@
 import React, { useState } from "react";
 import "./SwitchButton.css";
-import { motion } from "framer-motion";
 
-function SwitchButton() {
-    const [selected, updateSelected] = useState(false);
+function SwitchButton({ callback }) {
+    const [isBuyer, updateIsBuyer] = useState(true);
 
-    return <motion.div animate className={selected ? "switchButton on" : "switchButton off"} onClick={() => updateSelected(!selected)}>
-        <motion.div animate>
-            <p className="text">BUY A HOUSE</p>
-        </motion.div>
-        <p className="unselected-text">SELL A HOUSE</p>
-    </motion.div>
+    return <label className="switchButtonContainer">
+    <input
+        type="checkbox"
+        checked={!isBuyer}
+        onChange={() => {
+            updateIsBuyer(!isBuyer);
+            callback(!isBuyer);
+        }}
+        className="invisibleCheckbox"
+    />
+    <div className="switchButton" />
+    <div className="switchLabels">
+      <span>Buy a house</span>
+      <span>Sell a house</span>
+    </div>
+  </label>
 }
 
 export default SwitchButton;

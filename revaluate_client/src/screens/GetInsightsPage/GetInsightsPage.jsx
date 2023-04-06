@@ -1,16 +1,55 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Axios from 'axios';
 import './GetInsights.css';
 import Header from '../../components/Header/Header';
 import Chart from '../../components/Chart/Chart';
+import PricingChart from '../../components/PricingChart/PricingChart';
 import { Grid } from '@mui/material';
 import Table from 'react-bootstrap/Table';
 
 function GetInsightsPage() {
-    const currentYear = new Date().getFullYear();
-    var years = [];
-    for (let i = 1; i <= 10; i++) {
-        years.push(currentYear - 10 + i);
+    const navigate = useNavigate();
+    const [mostValued, updateMostValued] = useState([[], []]);
+    const [mostAffordable, updateMostAffordable] = useState([[], []]);
+    const [housingStats, updateHousingStats] = useState([]);
+
+    function getNeighbourhoodAffordabilityData() {
+        Axios.get('http://localhost:3001/neighbourhoodAffordability')
+        .then((response) => {
+            response = response.data;
+            if (response.status !== 'success') {navigate('/');}
+            var valuedNeighbourhoodsLabels = [];
+            var affordableNeighbourhoodsLabels = [];
+            var valuedNeighbourhoodsAvgPrices = [];
+            var affordableNeighbourhoodsAvgPrices = [];
+            for (var i = 0; i < 5; i++) {
+                valuedNeighbourhoodsLabels.push(response?.mostValued[i]._id);
+                valuedNeighbourhoodsAvgPrices.push(response?.mostValued[i].avgPrice);
+                affordableNeighbourhoodsLabels.push(response?.mostAffordable[i]._id);
+                affordableNeighbourhoodsAvgPrices.push(response?.mostAffordable[i].avgPrice);
+            }
+            updateMostValued([valuedNeighbourhoodsLabels, valuedNeighbourhoodsAvgPrices]);
+            updateMostAffordable([affordableNeighbourhoodsLabels, affordableNeighbourhoodsAvgPrices]);
+        })
+        .catch((err) => navigate('/'))
     };
+
+    function getFlatStatsByType() {
+        Axios.get('http://localhost:3001/flatStatsByType')
+        .then((response) => {
+            response = response.data;
+            if (response?.status !== 'success') { navigate('/'); }
+            console.log(response.data);
+            updateHousingStats(response.data);
+        })
+        .catch((err) => navigate('/') )
+    }
+
+    useEffect(() => {
+        getNeighbourhoodAffordabilityData();
+        getFlatStatsByType();
+    }, []);
 
     return (
         <div>
@@ -21,12 +60,11 @@ function GetInsightsPage() {
                         <div className='grid-item'>
                             <Chart
                                 type="bar"
-                                labels={['Bukit Timah', 'Tanjong Pagar', 'Queenstown', 'Holland', 'Buona Vista']}
+                                labels={mostValued[0]}
                                 data={[
                                     {
-                                    label: 'Dataset 1',
-                                    data: [5, 4, 3, 2, 1],
-                                    backgroundColor: 'rgba(7, 149, 171, 0.7',
+                                    data: mostValued[1],
+                                    backgroundColor: 'rgba(7, 149, 171, 0.7)',
                                     },
                                 ]}
                                 title="Most Valued Neighbourhoods"
@@ -38,19 +76,9 @@ function GetInsightsPage() {
                     </Grid>
                     <Grid item xs={7}>
                         <div className='grid-item'>
-                            <Chart
-                                type="line"
-                                labels={years}
-                                data={[
-                                    {
-                                        label: 'Singapore',
-                                        data: [350000, 450000, 500000, 480000, 520000, 550000, 570000, 580000, 630000, 600000],
-                                        borderColor: "rgba(8, 114, 201, 0.7",
-                                        backgroundColor: 'rgba(8, 114, 201, 0.7',
-                                    },
-                                ]}
+                            <PricingChart
+                                type="general"
                                 title="Resale Flat Prices across years"
-                                hideLegends={true}
                                 width="50vw"
                                 height="35vh"
                             />
@@ -62,12 +90,11 @@ function GetInsightsPage() {
                         <div className='grid-item'>
                             <Chart
                                 type="bar"
-                                labels={['Jurong West', 'Woodlands', 'Sembawang', 'Yishun', 'Yew Tee']}
+                                labels={mostAffordable[0]}
                                 data={[
                                     {
-                                    label: 'Dataset 1',
-                                    data: [1, 2, 3, 4, 5],
-                                    backgroundColor: 'rgba(7, 149, 171, 0.7',
+                                    data: mostAffordable[1],
+                                    backgroundColor: 'rgba(7, 149, 171, 0.7)',
                                     },
                                 ]}
                                 title="Most Affordable Neighbourhoods"
@@ -84,42 +111,20 @@ function GetInsightsPage() {
                                 <thead className='tableHeader'>
                                     <tr>
                                         <th>Flat Type</th>
-                                        <th>Average Size</th>
-                                        <th>Average tenure</th>
-                                        <th>Average Price</th>
+                                        <th>Average Size (sqm)</th>
+                                        <th>Average tenure (Years)</th>
+                                        <th>Average Price (SGD)</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
+                                {housingStats.map((data, idx) => {
+                                    return <tr key={idx} className="tableRow">
+                                        <td>{data._id}</td>
+                                        <td>{data.avgSize?.toFixed(2)}</td>
+                                        <td>{data.avgTenure?.toFixed(2)}</td>
+                                        <td>{data.avgPrice?.toFixed(2)}</td>
                                     </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>2</td>
-                                        <td>3</td>
-                                        <td>4</td>
-                                    </tr>
+                                })}
                                 </tbody>
                             </Table>
                         </div>

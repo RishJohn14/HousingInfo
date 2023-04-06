@@ -2,6 +2,46 @@
     height: 100vh;
 }
 
+.loading {
+    background-color: #b6b00b;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+}
+
+.fade {
+    opacity: 0;
+    transition: 0.7s all linear;
+    -webkit-transition: 0.7s all linear;
+    -moz-transition: 0.7s all linear;
+    -ms-transition: 0.7s all linear;
+    -o-transition: 0.7s all linear;
+}
+
+.revaluateLoader {
+    text-align: center;
+    font-size: 350%;
+    font-family: "Open Sans";
+    font-weight: 800;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.guardLoader {
+    margin: auto;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex: 1;
+}
+
 .home-left {
     padding-left: 6rem;
     padding-right: 3rem;

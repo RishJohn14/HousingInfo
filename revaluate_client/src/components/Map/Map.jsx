@@ -6,13 +6,14 @@ import { Grid } from '@mui/material';
 import Carousel from 'react-bootstrap/Carousel';
 import Axios from 'axios';
 
-function Map(){
+function Map(props){
+    const { minPrice, maxPrice, houseType, centre } = props;
     const { isLoaded } = useLoadScript({googleMapsApiKey: process.env.REACT_APP_GMAP_API_KEY});
 
-    const [center, updateCenter] = useState({lat: 1.3691, lng: 103.8454});
-    const [town, updateTown] = useState('Neighbourhood');
+    const [center, updateCenter] = useState({lat: Number(centre[0]), lng: Number(centre[1])});
     const [mapData, updateMapData] = useState([]);
     const [selectedPin, updateSelectedPin] = useState();
+    const [selectedData, updateSelectedData] = useState([]);
     const [cardVisible, updateCardVisibility] = useState(false);
     const [activeCarouselIndex, updateActiveCarouselIndex] = useState(0);
 
@@ -21,13 +22,23 @@ function Map(){
     }, []);
 
     function getMapData() {
-        Axios.get('http://localhost:3001/map')
+        Axios.get('http://localhost:3001/map', { params: {minPrice, maxPrice, houseType}})
         .then((res) => updateMapData(res.data))
         .catch((err) => console.log('error occured'))
     }
 
     function handleMarkerPress(idx) {
         updateSelectedPin(idx);
+        const latlng = [mapData[idx]?._id, mapData[idx]?.longitude[0]];
+        Axios.get('http://localhost:3001/getTransactionsFromPin',
+        {'params': {latitude: latlng[0], longitude: latlng[1], flat_type: houseType}})
+        .then((response) => {
+            response = response.data;
+            if (response.status !== 'success') { console.log('error'); }
+            updateSelectedData(response.data);
+        })
+        .catch((err) => console.log(err))
+
         updateCardVisibility(true);
     }
 
@@ -74,30 +85,22 @@ function Map(){
                         interval={null}
                         className="carousel"
                     >
-                        <Carousel.Item>
-                            <p className="roadName">Holland Close</p>
-                            <p className="block">Block 123</p>
-                            <p className="flatType">5-Room Flat</p>
-                            <p className="sellingPriceLabel">Selling Price</p>
-                            <p className="sellingPrice">$850,000</p>
-                            <p className="transactionDetailsLabel">Transaction Details</p>
-                            <p className="transactionDetails">Flat Size</p>
-                            <p className="transactionDetails">Tenure Left</p>
-                            <p className="transactionDetails">Proximity to MRT</p>
-                            <p className="transactionDetails">Year Sold</p>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <p className="roadName">Holland Close</p>
-                            <p className="block">Block 123</p>
-                            <p className="flatType">5-Room Flat</p>
-                            <p className="sellingPriceLabel">Selling Price</p>
-                            <p className="sellingPrice">$850,000</p>
-                            <p className="transactionDetailsLabel">Transaction Details</p>
-                            <p className="transactionDetails">Flat Size</p>
-                            <p className="transactionDetails">Tenure Left</p>
-                            <p className="transactionDetails">Proximity to MRT</p>
-                            <p className="transactionDetails">Year Sold</p>
-                        </Carousel.Item>
+                        {selectedData.map((data) => {
+                            return <Carousel.Item key = {data?._id}>
+                                <p className="roadName">{data?.street_name}</p>
+                                <p className="block">{'Block ' + data?.block}</p>
+                                <p className="flatType">{data?.flat_type + ' Flat'}</p>
+                                <p className="sellingPriceLabel">Selling Price</p>
+                                <p className="sellingPrice">{'$' + data?.resale_price}</p>
+                                <p className="transactionDetailsLabel">Transaction Details</p>
+                                <p className="transactionDetails">{'Flat Size (sqm): ' + data?.floor_area_sqm}</p>
+                                <p className="transactionDetails">{'Flat Model: ' + data?.flat_model}</p>
+                                <p className="transactionDetails">{'Storey Range: ' + data?.storey_range}</p>
+                                <p className="transactionDetails">{'Year of Built: ' + data?.lease_commence_date}</p>
+                                <p className="transactionDetails">{'Tenure during sale (years): ' + data?.remaining_lease}</p>
+                                <p className="transactionDetails">{'Transaction Date (Month/Year): ' + data?.month + '/' + data?.year}</p>
+                            </Carousel.Item>
+                        })}
                     </Carousel>
                 </div>
             </GoogleMap> }
