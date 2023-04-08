@@ -14,10 +14,12 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
+    "calculate-correlation": "^1.2.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^7.0.1",
+    "newsapi": "^2.4.1",
     "node-fetch": "^3.3.1",
     "nodemon": "^2.0.21",
     "title-case": "^3.0.3"

@@ -6,10 +6,17 @@ import { Grid } from '@mui/material';
 import Carousel from 'react-bootstrap/Carousel';
 import Axios from 'axios';
 
+/**
+ * Map component that uses Google Map API with further customisation
+ * @author Augustine Lee
+ * @param {minPrice, maxPrice, houseType, centre} props 
+ * @returns Map component
+ */
 function Map(props){
     const { minPrice, maxPrice, houseType, centre } = props;
     const { isLoaded } = useLoadScript({googleMapsApiKey: process.env.REACT_APP_GMAP_API_KEY});
 
+    //states
     const [center, updateCenter] = useState({lat: Number(centre[0]), lng: Number(centre[1])});
     const [mapData, updateMapData] = useState([]);
     const [selectedPin, updateSelectedPin] = useState();
@@ -17,16 +24,19 @@ function Map(props){
     const [cardVisible, updateCardVisibility] = useState(false);
     const [activeCarouselIndex, updateActiveCarouselIndex] = useState(0);
 
+    //on load, get map data from backend
     useEffect(() => {
         getMapData();
     }, []);
 
+    //function to get map data from backend and update state
     function getMapData() {
         Axios.get('http://localhost:3001/map', { params: {minPrice, maxPrice, houseType}})
         .then((res) => updateMapData(res.data))
         .catch((err) => console.log('error occured'))
     }
 
+    //function to get a particular location data and display information card when the pin is clicked
     function handleMarkerPress(idx) {
         updateSelectedPin(idx);
         const latlng = [mapData[idx]?._id, mapData[idx]?.longitude[0]];
@@ -42,6 +52,7 @@ function Map(props){
         updateCardVisibility(true);
     }
 
+    //function to close the information card
     function handleClose() {
         updateSelectedPin();
         updateCardVisibility(false);

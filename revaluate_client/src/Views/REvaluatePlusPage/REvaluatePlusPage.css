@@ -1,0 +1,249 @@
+.premiumWelcomeTitle {
+    text-align: left;
+    font-size: 2rem;
+    padding-top: 1rem;
+    padding-left: 6rem;
+    padding-bottom: 0rem;
+    margin-bottom: 0rem;
+}
+
+.premiumLogout {
+    font-size: 1rem;
+    font-family: 'Open Sans';
+    font-weight: 700;
+}
+
+.premiumLogout:hover {
+    cursor: pointer;
+}
+
+.userProfilePic {
+    width: 3vw;
+    margin-right: 1rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.premiumTabGroup {
+    padding: 2%;
+    padding-left: 0;
+    padding-top: 0;
+}
+
+.premiumTabIndex {
+    color: #000000;
+    font-size: 1.2rem;
+    padding: 3%;
+    border-radius: 10px;
+    font-family: 'Open Sans';
+}
+
+.premiumTabIndex:hover {
+    cursor: pointer;
+}
+
+.premiumTabIndexSelected {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    padding: 3%;
+    border-radius: 10px;
+    font-family: 'Open Sans';
+    background-color: rgb(187, 190, 13);
+}
+
+.premiumTabIndexSelected:hover {
+    cursor: pointer;
+}
+
+.NeighbourhoodComparatorTitle {
+    font-size: 2.5rem;
+    font-family: 'Open Sans';
+    font-weight: 500;
+}
+
+.neighbourhoodComparatorPartition {
+    padding-right: 3%;
+}
+
+.premiumTableTitle {
+    font-size: 1rem;
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 0rem;
+    font-family: 'Open Sans';
+    font-weight: 700;
+}
+
+.premiumTableHeader {
+    font-size: 0.8rem;
+    text-align: center;
+    padding-bottom: 0;
+    font-family: 'Open Sans';
+    background-color: rgba(187, 190, 3);
+}
+
+.RoboAdvisorTitle {
+    font-size: 2.5rem;
+    font-family: 'Open Sans';
+    padding-bottom: 0%;
+    font-weight: 500;
+    margin-bottom: 0.5%;
+}
+
+.RoboAdvisorSubtitle {
+    font-size: 1.5rem;
+    font-family: 'Open Sans';
+    padding-bottom: 0%;
+}
+
+.RoboAdvisorSectionHeader {
+    padding-bottom: 0%;
+    margin-top: 5%;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.workplaceLocationButton {
+    background-color: #545454;
+    font-size: 1.2rem;
+    margin: 0% 3%;
+    border: none;
+    border-radius: 30px;
+    width: 7rem;
+    margin-bottom: 2%;
+}
+
+.workplaceLocationButtonSelected {
+    background-color: rgba(187, 190, 3);
+    color: #000000;
+    font-size: 1.2rem;
+    margin: 0% 3%;
+    border: none;
+    border-radius: 30px;
+    width: 7rem;
+    margin-bottom: 2%;
+}
+
+.workplaceLocationButtonSelected:hover {
+    background-color: rgba(187, 190, 3);
+    color: #000000;
+}
+
+.RoboAdvisorSlider::-webkit-slider-thumb {
+    background: #545454;
+}
+
+.RoboAdvisorSlider::-moz-range-thumb {
+    background: #545454;
+}
+
+.RoboAdvisorSlider::-ms-thumb {
+    background: #545454;
+}
+
+.RoboAdvisorSubmitButton {
+    background-color: #F49F08;
+    font-size: 1.2rem;
+    margin: 0% 3%;
+    border: none;
+    border-radius: 30px;
+    width: 7rem;
+    margin-top: 8%;
+}
+
+.RoboAdvisorSubmitButton:hover {
+    background-color: #F49F08;
+}
+
+.RoboAdvisorSubmitButton:disabled {
+    background-color: #dadada;
+}
+
+.RoboAdvisorResultsTitle {
+    padding-bottom: 0%;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Open Sans';
+    text-align: center;
+}
+
+.RoboAdvisorResultsSectionHeader {
+    padding-bottom: 0%;
+    font-size: 1.2rem;
+    font-family: 'Open Sans';
+    font-weight: 500;
+}
+
+.RoboAdvisorPartition {
+    padding: 0% 2%;
+    border: 0.2rem solid #eaeaea;
+    border-right: transparent;
+    border-top: transparent;
+    border-bottom: transparent;
+}
+
+.forumPageTitle {
+    font-size: 2.5rem;
+    font-family: 'Open Sans';
+    padding-bottom: 0%;
+    font-weight: 500;
+    margin-bottom: 2%;
+}
+
+.forumTopics {
+    display: inline;
+    margin-right: 2%;
+    padding: 0.5% 1%;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+}
+
+.forumTopics:hover {
+    cursor: pointer;
+}
+
+.topicsDiv {
+    text-align: left;
+}
+
+.forum {
+    background-color: #efefef;
+    margin: 2%;
+    margin-left: 0%;
+    padding: 0.5%;
+    border-radius: 17px;
+}
+
+.forumCard {
+    margin: 1%;
+}
+
+.forumCard:hover {
+    cursor: pointer;
+}
+
+.forumCardPost {
+    padding-bottom: 0%;
+}
+
+.forumAddNewPost {
+    text-align: right;
+    padding: 0.5% 2%;
+    margin: 0%;
+}
+
+.forumAddNewPost svg:hover {
+    cursor: pointer;
+}
+
+.addPostBack:hover {
+    cursor: pointer;
+}

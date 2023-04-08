@@ -1,0 +1,30 @@
+.addPostPopUp {
+    background-color: #FFFFFF;
+    padding: 1%;
+    border-radius: 1rem;
+}
+
+.addPostTitle {
+    font-size: 2.5rem;
+    font-family: 'Open Sans';
+    font-weight: 600;
+    color: #338579;
+    padding: 0%;
+}
+
+.addPostSubmitButton {
+    background-color: #F49F08;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 30px;
+    width: 7rem;
+    margin-top: 2%;
+}
+
+.addPostSubmitButton:hover {
+    background-color: #F49F08;
+}
+
+.addPostSubmitButton:disabled {
+    background-color: #d7d7d7;
+}
