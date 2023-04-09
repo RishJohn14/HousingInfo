@@ -13,7 +13,7 @@
     height: 3rem;
     text-align: left;
     border: none;
-    background-color: #2a2a2a;
+    background-color: #2d3036;
     margin-bottom: 0.8rem;
 }
 
@@ -31,6 +31,7 @@
 
 .loginCard {
     background-color: #FFFFFF;
+    opacity: 0.95;
     padding: 2%;
     height: auto;
     width: 60%;
@@ -55,7 +56,6 @@
     font-size: 2rem;
     font-family: 'Open Sans';
     font-weight: 600;
-    color: rgb(228, 116, 90);
 }
 
 .loginPartitionSubtitle {

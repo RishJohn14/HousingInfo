@@ -9,6 +9,8 @@ import { Google, Microsoft, Facebook } from 'react-bootstrap-icons'
 import { Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import { FcGoogle } from 'react-icons/fc';
+import { AiFillFacebook, AiFillYahoo } from 'react-icons/ai';
 
 /**
  * Login Page for REvaluate+
@@ -47,17 +49,17 @@ function LoginPage() {
                 </p>
                 <div className="ssoButtonDiv">
                 <Button className="ssoButton" onClick={googleLogin}>
-                    Login with Google <Google size={20} />
+                    <FcGoogle size={27} style={{marginRight: 15}} />Login with Google
                 </Button>
                 </div>
                 <div className="ssoButtonDiv">
                 <Button className="ssoButton" onClick={googleLogin}>
-                    Login with Microsoft <Microsoft size={20} />
+                    <AiFillFacebook size={30} style={{marginRight:12}} color="#1778F2" />Login with Facebook
                 </Button>
                 </div>
                 <div className="ssoButtonDiv">
                 <Button className="ssoButton" onClick={googleLogin}>
-                    Login with Facebook <Facebook size={20} />
+                    <AiFillYahoo size={32} style={{marginRight:10}} color="#B202F2" />Login with Yahoo
                 </Button>
                 </div>
             </Grid>

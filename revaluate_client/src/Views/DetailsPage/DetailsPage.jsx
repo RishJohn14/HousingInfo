@@ -29,6 +29,8 @@ function DetailsPage() {
   const [loadingFade, updateLoadingFade] = useState(false);
   const [detailsData, updateDetailsData] = useState([]);
   const [correlationData, updateCorrelationData] = useState({});
+  const [minPrice, updateMinPrice] = useState(0);
+  const [maxPrice, updateMaxPrice] = useState(2000000);
 
   //function that gets search text results from backend
   function getDetailsData() {
@@ -190,10 +192,10 @@ function DetailsPage() {
           <p className="detailsSeparator">
             Check out below how much your neighbours are selling their houses for
           </p>
-          <PriceFilterBar />
+          <PriceFilterBar updateMinCallback={updateMinPrice} updateMaxCallback={updateMaxPrice} />
           <Map
-            minPrice={0}
-            maxPrice={1000000}
+            minPrice={minPrice}
+            maxPrice={maxPrice}
             centre={state?.type === 'buyer' ? townLatLongMap[state?.buyerNeighbourhood] : [state?.latitude, state?.longitude]}
             houseType={state?.type === 'buyer' ? state?.buyerHouseType : state?.sellerHouseType}
           />

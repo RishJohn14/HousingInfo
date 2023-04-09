@@ -44,7 +44,7 @@ function ViewPostPopUp(props) {
 
     //function to submit comment if input is validated
     function submitComment() {
-        if (!validateInput) {return;}
+        if (!inputValid) {return;}
         Axios.post('http://localhost:3001/addcomment', { params: {
             id,
             username: user.displayName,
@@ -63,6 +63,10 @@ function ViewPostPopUp(props) {
     useEffect(() => {
         getPostData();
     }, []);
+
+    useEffect(() => {
+        validateInput();
+    }, [comment]);
 
     return <div>
     <Container fluid className="viewPostPopUp">

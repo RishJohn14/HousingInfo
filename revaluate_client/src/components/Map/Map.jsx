@@ -27,7 +27,7 @@ function Map(props){
     //on load, get map data from backend
     useEffect(() => {
         getMapData();
-    }, []);
+    }, [minPrice, maxPrice]);
 
     //function to get map data from backend and update state
     function getMapData() {
