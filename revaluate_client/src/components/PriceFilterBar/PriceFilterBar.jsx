@@ -4,7 +4,6 @@ import './PriceFilterBar.css';
 
 /**
  * Price Filter Bar component that allows user to restrict the houses displayed by price range
- * @author Alexus Lim
  * @returns Price Filter Bar component
  */
 function PriceFilterBar(props){

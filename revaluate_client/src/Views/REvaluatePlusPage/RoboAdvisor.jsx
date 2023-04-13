@@ -10,7 +10,6 @@ import PricingChart from "../../components/PricingChart/PricingChart";
 
 /**
  * RoboAdvisor Page
- * @author Augustine Lee
  * @returns RoboAdvisor Page
  */
 function RoboAdvisor() {

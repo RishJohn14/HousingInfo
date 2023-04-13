@@ -8,7 +8,6 @@ import Axios from 'axios';
 
 /**
  * Map component that uses Google Map API with further customisation
- * @author Augustine Lee
  * @param {minPrice, maxPrice, houseType, centre} props 
  * @returns Map component
  */
@@ -32,7 +31,7 @@ function Map(props){
     //function to get map data from backend and update state
     function getMapData() {
         Axios.get('http://localhost:3001/map', { params: {minPrice, maxPrice, houseType}})
-        .then((res) => updateMapData(res.data))
+        .then((res) => updateMapData(res.data.data))
         .catch((err) => console.log('error occured'))
     }
 
@@ -71,7 +70,7 @@ function Map(props){
                 center={center}
                 zoom={18}
             >
-                {mapData.map((data, idx) =>
+                {mapData.length > 0 && mapData.map((data, idx) =>
                 <MarkerF
                     key={idx}
                     onClick={() => handleMarkerPress(idx)}

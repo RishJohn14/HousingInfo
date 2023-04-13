@@ -5,6 +5,7 @@
 
 .ssoButtonDiv {
     margin: 1%;
+    margin-top: 2%;
     text-align: left;
 }
 
@@ -61,7 +62,8 @@
 .loginPartitionSubtitle {
     margin: 0%;
     padding: 0%;
-    margin-bottom: 5%;
+    margin-top: 5%;
+    margin-bottom: 10%;
     font-size: 1.2rem;
     font-family: 'Open Sans';
     font-weight: 600;

@@ -26,7 +26,6 @@ import {
 
 /**
  * This is a customised Chart component that uses Chart.js charts but encapsulated some repeated styling
- * @author Augustine Lee
  * @param {type, data, title, labels, hideLegends, width, height} props 
  * @returns Chart component
  */

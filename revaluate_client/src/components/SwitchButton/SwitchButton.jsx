@@ -3,7 +3,6 @@ import "./SwitchButton.css";
 
 /**
  * Switch Button component to toggle between buyer and seller on home page
- * @author Rishabh John, Augustine Lee
  * @param {callback}
  * @returns Switch Button component
  */

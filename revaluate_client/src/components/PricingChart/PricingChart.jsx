@@ -5,7 +5,6 @@ import Chart from "../Chart/Chart";
 
 /**
  * Chart component used to display time series pricing charts
- * @author Augustine Lee
  * @param {type, title, town = '', latitude = '', longitude = '', flat_type = '',  width, height} props 
  * @returns Pricing Chart component
  */

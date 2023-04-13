@@ -10,7 +10,6 @@ import Table from 'react-bootstrap/Table';
 
 /**
  * Get Insights Page that displays broad-based housing trends and data
- * @author Tan Jia Ze
  * @returns Get Insights Page
  */
 function GetInsightsPage() {

@@ -26,7 +26,7 @@ const ChartController = require('./Controllers/ChartController');
 const MapController = require('./Controllers/MapController');
 const StatsController = require('./Controllers/StatsController');
 const DetailsController = require('./Controllers/DetailsController');
-const ForumController = require('./Controllers/ForumManager');
+const ForumController = require('./Controllers/ForumController');
 const ValidationController = require('./Controllers/ValidationController');
 
 /*

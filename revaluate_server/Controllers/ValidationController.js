@@ -7,7 +7,6 @@ const tc = require("title-case");
 
 /**
  * function to validate the user input is not empty and for seller, to ensure the postal code is valid
- * @author Augustine Lee
  * @param {*} req 
  * @param {*} res 
  */

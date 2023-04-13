@@ -7,7 +7,6 @@ const houseData = require("../Models/HouseData");
 
 /**
  * function to get aggregated time-series data of resale prices of Singapore as a whole
- * @author Augustine Lee
  * @param {*} req 
  * @param {*} res 
  */
@@ -42,7 +41,6 @@ function getGeneralPricingChartData(req, res) {
 
 /**
  * function to get time-series resale price data with two hues, one for the neighbourhood and one for Singapore as a whole
- * @author Augustine Lee
  * @param {*} req 
  * @param {*} res 
  */
@@ -58,7 +56,7 @@ function getNeighbourhoodPriceComparisonChart(req, res) {
     for (var i = 0; i < 10; i++) { timeFrame.push(currentYear - i); }
   
     //missing user type information
-    if (!userType) { res.send({ 'status': 'Missing Information' }); }
+    if (!userType) { res.send({ 'status': 'Missing Information' }); return; }
     //entire Singapore
     var match;
     if (userType !== 'revaluate+') {
@@ -172,13 +170,13 @@ function getNeighbourhoodPriceComparisonChart(req, res) {
       })
         .catch((err) => console.log(err))
       }
+      else {res.send({status: 'error'});}
     })
     .catch((err) => console.log(err));
 };
 
 /**
  * function to get time-series transaction count data for a neighbourhood
- * @author Augustine Lee
  * @param {*} req 
  * @param {*} res 
  * @returns 
@@ -226,7 +224,6 @@ function getNeighbourhoodCountChart(req, res) {
 
 /**
  * function to get the top 5 most affordable neighbourhoods and top 5 most valued neighbourhoods
- * @author Augustine Lee
  * @param {*} req 
  * @param {*} res 
  */

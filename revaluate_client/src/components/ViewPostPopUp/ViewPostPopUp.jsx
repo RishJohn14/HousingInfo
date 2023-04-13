@@ -10,7 +10,6 @@ import SendIcon from '@mui/icons-material/Send';
 
 /**
  * Pop up component to view forum post
- * @author Augustine Lee
  * @param {id} props 
  * @returns view post component
  */

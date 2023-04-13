@@ -5,7 +5,6 @@ import Header from '../../components/Header/Header';
 
 /**
  * About Us Page
- * @author Jay Yau
  * @returns About Us Page
  */
 function AboutPage() {

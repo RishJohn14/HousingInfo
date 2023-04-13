@@ -3,7 +3,6 @@ import './Header.css';
 
 /**
  * Header component used in every page for navigation
- * @author Alexus Lim
  * @returns Header component
  */
 function Header(){

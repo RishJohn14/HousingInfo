@@ -9,7 +9,6 @@ const houseData = require("../Models/HouseData");
 
 /**
  * function to get statistics of by house type
- * @author Augustine Lee
  * @param {*} req 
  * @param {*} res 
  */
@@ -39,7 +38,6 @@ function getFlatStatsByType(req, res) {
 
 /**
  * function to get statistics of a particular neighbourhood
- * @author Augustine Lee
  * @param {*} req 
  * @param {*} res 
  */
@@ -73,7 +71,6 @@ function getNeighbourhoodStatistics(req, res) {
 
 /**
  * function to get correlation coefficient between the different features and resale price
- * @author Augustine Lee
  * @param {*} req 
  * @param {*} res 
  */

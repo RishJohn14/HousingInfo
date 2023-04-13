@@ -2,31 +2,37 @@ import React, { useEffect, useState } from "react";
 import "./LoginPage.css";
 import Header from "../../components/Header/Header";
 import auth from "../../firebase";
-import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, FacebookAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Button from 'react-bootstrap/Button';
-import { Google, Microsoft, Facebook } from 'react-bootstrap-icons'
 import { Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import { FcGoogle } from 'react-icons/fc';
-import { AiFillFacebook, AiFillYahoo } from 'react-icons/ai';
+import { AiFillFacebook } from 'react-icons/ai';
 
 /**
  * Login Page for REvaluate+
- * @author Rishabh John, Augustine Lee
  * @returns Login Page for REvaluate+
  */
 function LoginPage() {
     const navigate = useNavigate();
     const googleProvider = new GoogleAuthProvider();
+    const facebookProvider = new FacebookAuthProvider();
     const [user, loading] = useAuthState(auth);
 
     //function that performs google SSO login using google identity provider
-    async function googleLogin() {
-        try {
-            const login = await signInWithPopup(auth, googleProvider);
-        } catch (err) { console.log(err); }
+    function googleLogin() {
+        signInWithPopup(auth, googleProvider)
+        .then((response) => console.log(response))
+        .catch((err) => console.log(err))
+    }
+
+    //function that performs facebook SSO login using facebook identity provider
+    function facebookLogin() {
+        signInWithPopup(auth, facebookProvider)
+        .then((response) => console.log(response))
+        .catch((err) => console.log(err))
     }
 
     //on load, if there is already a signed in user, redirect to revaluate+ page
@@ -53,13 +59,8 @@ function LoginPage() {
                 </Button>
                 </div>
                 <div className="ssoButtonDiv">
-                <Button className="ssoButton" onClick={googleLogin}>
+                <Button className="ssoButton" onClick={facebookLogin}>
                     <AiFillFacebook size={30} style={{marginRight:12}} color="#1778F2" />Login with Facebook
-                </Button>
-                </div>
-                <div className="ssoButtonDiv">
-                <Button className="ssoButton" onClick={googleLogin}>
-                    <AiFillYahoo size={32} style={{marginRight:10}} color="#B202F2" />Login with Yahoo
                 </Button>
                 </div>
             </Grid>

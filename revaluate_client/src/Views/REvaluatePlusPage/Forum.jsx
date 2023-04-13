@@ -10,7 +10,6 @@ import ViewPostPopUp from "../../components/ViewPostPopUp/ViewPostPopUp";
 
 /**
  * Forum Page
- * @author Augustine Lee
  * @returns Forum Page
  */
 function Forum() {

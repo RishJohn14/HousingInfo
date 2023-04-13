@@ -17,7 +17,6 @@ import { useNavigate } from "react-router-dom";
 
 /**
  * Home Page
- * @author Rishabh John
  * @returns Home Page
  */
 function HomePage() {

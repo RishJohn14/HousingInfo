@@ -16,7 +16,6 @@ import Table from 'react-bootstrap/Table';
 
 /**
  * Details Page displaying search results
- * @author Lavanya Sharma
  * @returns Details Page
  */
 function DetailsPage() {

@@ -12,7 +12,6 @@ import { useNavigate } from "react-router-dom";
 
 /**
  * REvaluate+ home page
- * @author Augustine Lee
  * @returns REvaluate+ home page
  */
 function REvaluatePlusPage() {

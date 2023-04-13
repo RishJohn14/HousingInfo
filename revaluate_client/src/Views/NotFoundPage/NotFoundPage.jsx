@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 /**
  * Page that user gets redirected to when there is no results for their search
- * @author Augustine Lee
  * @returns No Data Page
  */
 function NotFoundPage() {

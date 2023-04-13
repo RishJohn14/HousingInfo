@@ -8,7 +8,6 @@ const discussion = require("../Models/Discussion");
 
 /**
  * function to get forum topics from database
- * @author Augustine Lee
  * @param {*} req 
  * @param {*} res 
  */
@@ -20,7 +19,6 @@ function getForumTopics(req, res) {
 
 /**
  * function to get forum posts from database
- * @author Augustine Lee
  * @param {*} req 
  * @param {*} res 
  */
@@ -32,7 +30,6 @@ function getForumPosts(req, res) {
 
 /**
  * function to add a post to the database
- * @author Augustine Lee
  * @param {*} req 
  * @param {*} res 
  */
@@ -54,7 +51,6 @@ function addPost(req, res) {
 
 /**
  * function to get a post by its ID
- * @author Augustine Lee
  * @param {*} req 
  * @param {*} res 
  */
@@ -72,7 +68,6 @@ function getPostDataById(req, res) {
 
 /**
  * function to add a comment to a post of a particular ID
- * @author Augustine Lee
  * @param {*} req 
  * @param {*} res 
  */

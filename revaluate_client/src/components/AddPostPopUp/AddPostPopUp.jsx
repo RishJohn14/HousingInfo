@@ -10,7 +10,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 /**
  * Pop-up component for adding new forum posts
- * @author Augustine Lee
  * @param { callback } props 
  * @returns component
  */

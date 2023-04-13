@@ -10,7 +10,6 @@ import Table from 'react-bootstrap/Table';
 
 /**
  * Neighbourhood Comparator Page
- * @author Augustine Lee
  * @returns Neighbourhood Comparator Page
  */
 function NeighbourhoodComparator() {
