@@ -37,6 +37,7 @@ function LoginPage() {
 
     //on load, if there is already a signed in user, redirect to revaluate+ page
     useEffect(() => {
+        console.log(user);
         if (user) {
             navigate('/revaluate+');
         }

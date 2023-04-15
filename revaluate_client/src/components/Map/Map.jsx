@@ -95,7 +95,7 @@ function Map(props){
                         interval={null}
                         className="carousel"
                     >
-                        {selectedData.map((data) => {
+                        {selectedData && selectedData.map((data) => {
                             return <Carousel.Item key = {data?._id}>
                                 <p className="roadName">{data?.street_name}</p>
                                 <p className="block">{'Block ' + data?.block}</p>

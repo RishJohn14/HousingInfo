@@ -59,11 +59,11 @@ async function getMapData(req, res) {
 function getTransactionsFromPin(req, res) {
     const reqData = req.query;
     const houseType = reqData?.flat_type;
-    if (!reqData?.latitude || reqData?.latitude < 1.2258860606437172 || reqData.latitude > 1.3578242506601004) {
+    if (!reqData?.latitude || reqData?.latitude < 1.2258860606437172 || reqData.latitude > 1.470283185835049) {
       res.send({status: 'Invalid Inputs - Latitude'});
       return;
     }
-    if (!reqData?.longitude || reqData?.longitude < 103.80877010434992 || reqData?.longitude > 103.83315507774375) {
+    if (!reqData?.longitude || reqData?.longitude < 103.62027151387078 || reqData?.longitude > 104.03369364878364) {
       res.send({status: 'Invalid Inputs - Longitude'});
       return;
     }
