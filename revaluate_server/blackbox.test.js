@@ -132,7 +132,7 @@ describe('Map Controller - getTransactionsFromPin function', () => {
   test('Testing of getTransactionsFromPin function - BBT 2.3.3', (done) => {
     const req = http.createRequest({
       query: {
-        latitude: 1.3578242506601004,
+        latitude: 1.470283185835049,
         longitude: 103.81,
         flat_type: '5 ROOM'
       }
@@ -149,7 +149,7 @@ describe('Map Controller - getTransactionsFromPin function', () => {
   test('Testing of getTransactionsFromPin function - BBT 2.3.4', (done) => {
     const req = http.createRequest({
       query: {
-        latitude: 1.358,
+        latitude: 1.471,
         longitude: 103.81,
         flat_type: '5 ROOM'
       }
@@ -167,7 +167,7 @@ describe('Map Controller - getTransactionsFromPin function', () => {
     const req = http.createRequest({
       query: {
         latitude: 1.25,
-        longitude: 103.80877010434992,
+        longitude: 103.62027151387078,
         flat_type: '5 ROOM'
       }
     });
@@ -184,7 +184,7 @@ describe('Map Controller - getTransactionsFromPin function', () => {
     const req = http.createRequest({
       query: {
         latitude: 1.25,
-        longitude: 103.8,
+        longitude: 103.6,
         flat_type: '5 ROOM'
       }
     });
@@ -201,7 +201,7 @@ describe('Map Controller - getTransactionsFromPin function', () => {
     const req = http.createRequest({
       query: {
         latitude: 1.25,
-        longitude: 103.83315507774375,
+        longitude: 104.03369364878364,
         flat_type: '5 ROOM'
       }
     });
@@ -218,7 +218,7 @@ describe('Map Controller - getTransactionsFromPin function', () => {
     const req = http.createRequest({
       query: {
         latitude: 1.25,
-        longitude: 103.84,
+        longitude: 104.05,
         flat_type: '5 ROOM'
       }
     });
