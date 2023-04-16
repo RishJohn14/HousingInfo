@@ -1,6 +1,6 @@
 ## Welcome to REvaluate
 
-![Alt Text](https://github.com/RishJohn14/HousingInfo/blob/staging/readme_gif.gif)
+![Alt Text](https://github.com/RishJohn14/HousingInfo/blob/main/readme_gif.gif)
 
 REvalutate is a web application that translates open-source housing resale transaction information, from data.gov, into actionable insights for potential home buyers/sellers and allows them to perform ad-hoc queries on resale houses pricing. This project serves to enhance transparency in the housing market and help potential buyers/sellers make more informed pricing decisions.
 
