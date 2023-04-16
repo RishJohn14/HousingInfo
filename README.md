@@ -8,6 +8,7 @@ Demo Video (file can be found in Lab 5 folder): https://www.youtube.com/watch?v=
 
 ## Repository Organisation
 Please refer to the Index File for a guide on the repository files' organisation.
+The latest set of documentation can be found in the Lab 5 folder
 
 ## To run REvaluate
 Please clone the repository and start up 2 terminals (1 for frontend and 1 for backend)
