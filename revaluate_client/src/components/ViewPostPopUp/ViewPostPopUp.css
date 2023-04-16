@@ -1,0 +1,50 @@
+.viewPostPopUp {
+    background-color: #FFFFFF;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    padding: 1%;
+    margin-bottom: 1%;
+}
+
+.viewPostPopUp p {
+    padding: 0%;
+}
+
+.viewPostUser {
+    font-size: 1rem;
+}
+
+.viewPostUserPic {
+    width: 2.5%;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.viewPostTitle {
+    font-size: 1.5rem;
+    font-family: 'Open Sans';
+    font-weight: 600;
+}
+
+.viewPostSubtitle {
+    font-size: 1rem;
+    font-family: 'Open Sans';
+    font-weight: 400;
+}
+
+.replyBox {
+    background-color: #FFFFFF;
+    border-radius: 1rem;
+    padding: 1%;
+}
+
+.replySpace {
+    display: inline;
+    width: 95%;
+}

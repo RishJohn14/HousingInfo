@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+.Location_Title {
+  font-size: 300%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  text-align: center;
+  color: #0a0a0a;
+  padding: 0%;
+  margin-bottom: 0%;
+}
+
+.searching {
+  background-color: #000000;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  text-align: center;
+}
+
+.fade {
+  opacity: 0;
+  transition: 0.7s all linear;
+  -webkit-transition: 0.7s all linear;
+  -moz-transition: 0.7s all linear;
+  -ms-transition: 0.7s all linear;
+  -o-transition: 0.7s all linear;
+}
+
+.searchLoader {
+  text-align: center;
+  font-size: 350%;
+  font-family: "Open Sans";
+  font-weight: 800;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.flagLoader {
+  margin: auto;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.TypeofFlat {
+  font-size: 150%;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: #080808;
+  padding: 0%;
+}
+
+.Estimated.Price {
+  font-size: 120%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #4d4a4a;
+  text-align: center;
+  padding: 0%;
+  margin-bottom: 0%;
+}
+
+.Price {
+  font-size: 500%;
+  font-weight: bold;
+  color: rgb(79, 150, 152);
+  text-align: center;
+  padding: 0%;
+}
+
+.bar {
+  position: relative;
+  height: 5px;
+  width: 500px;
+  margin: 20px auto;
+  background-color: black;
+}
+
+.line {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background-color: #ccc;
+}
+
+.line.left {
+  left: calc(33.33% - 1px);
+}
+
+.line.center {
+  left: calc(50% - 1px);
+}
+
+.line.right {
+  right: calc(33.33% - 1px);
+}
+
+.price1 {
+  position: absolute;
+  font-size: 12px;
+  color: black;
+  bottom: -30px;
+  left: calc(50%-100px);
+}
+
+.price2 {
+  position: absolute;
+  font-size: 12px;
+  color: black;
+  bottom: -30px;
+  left: calc(50% +10px);
+}
+
+.price3 {
+  position: absolute;
+  font-size: 12px;
+  color: black;
+  bottom: -30px;
+  left: calc(50%+00px);
+}
+
+.Features.of.Holland.State {
+  font-size: 150%;
+  margin-top: 5%;
+  font-weight: bold;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #0a0a0a;
+}
+
+.Features {
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #0a0a0a;
+  text-align: center;
+}
+
+.Most.valued {
+  font-size: 150%;
+  font-weight: bold;
+  text-align: center;
+  color: #0a0a0a;
+}
+
+.streets {
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #0a0a0a;
+  text-align: center;
+  margin: auto;
+}
+
+.streets p {
+  text-align: center;
+  padding: 0%;
+}
+
+.chartDiv {
+  padding: 1rem 0rem;
+  background: #f6f6f6;
+  text-align: center;
+  border-radius: 5%;
+  -webkit-border-radius: 5%;
+  -moz-border-radius: 5%;
+  -ms-border-radius: 5%;
+  -o-border-radius: 5%;
+  box-shadow: 5px 5px 0px 0px #3c3c3c23;
+}
+
+.detailsSeparator {
+  color: orange;
+  font-family: "Open Sans";
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 1rem 0rem;
+}
+
+.sellerTable {
+  margin: auto;
+  margin-top: 3%;
+  width: 85%;
+}
+
+.sellerTableHeader {
+  color: #FFFFFF;
+  background-color: rgb(55, 108, 110);
+}

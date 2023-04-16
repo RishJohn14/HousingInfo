@@ -1,60 +1,67 @@
-import React, { useState } from 'react';
+import { Button } from '@mui/material';
+import React, { useEffect, useState } from 'react';
 import './PriceFilterBar.css';
 
-function PriceFilterBar(){
+/**
+ * Price Filter Bar component that allows user to restrict the houses displayed by price range
+ * @returns Price Filter Bar component
+ */
+function PriceFilterBar(props){
+    const { updateMinCallback, updateMaxCallback } = props;
+
+    //states
     const [minPrice, setMinPrice] = useState(0);
-    const [maxPrice, setMaxPrice] = useState(10000000);
-    
-    const handleChange = (event, type) => {
-        const value = event.target.value;
-        if(isNaN(value) == true ){
-            alert("Invalid, Please enter Numeric values only.");
-            event.target.value = '';
-            return false;
-        } 
-        if(value < 0){
-            alert("Invalid, Price entered is negative.");
-            event.target.value = '';
-            return false;
+    const [maxPrice, setMaxPrice] = useState(2000000);
+    const [inputValid, updateInputValid] = useState(true);
+
+    //function that update states and validate inputs when the user provides input
+    const handleChange = () => {
+        if(isNaN(minPrice) || isNaN(maxPrice)){
+            updateInputValid(false);
+            return;
         }
-        if(value > 10000000){
-            alert("Invalid, Price entered exceeds the maximum value.");
-            event.target.value = '';
-            return false;
+        if(minPrice < 0){
+            updateInputValid(false);
+            return;
         }
-        if (type == 'MIN'){
-            /* doesn't function properly because setState is 1 state behind
-            if (value > maxPrice){
-                alert("Invalid range.");
-                event.target.value = '';
-                return false;
-            }
-            */
-            setMinPrice(value); 
+        if(maxPrice > 2000000){
+            updateInputValid(false);
+            return;
         }
-        else{
-            /* doesn't function properly because setState is 1 state behind
-            if (value < minPrice){
-                alert("Invalid range.");
-                event.target.value = '';
-                return false;
-            }
-            */
-            setMaxPrice(value); 
+        if (minPrice >= maxPrice){
+            updateInputValid(false);
+            return;
         }
-        console.log(value);
-        console.log("min value = " + minPrice);
-        console.log("max value = " + maxPrice);
+        else {
+            updateInputValid(true);
+            return;
+        }
     }
-    
+
+    useEffect(() => {
+        handleChange()
+    }, [minPrice, maxPrice]);
+
     return(
-        <div className = 'filterBar'>
-            <p className='filterBarLabel'>
-                Only show transactions between
-            </p>
-            <input id = "minInputBox" type = 'text' placeholder = 'Minimum value' onChange={(e) => handleChange(e, 'MIN')} ></input>
-            <p className='filterBarLabel'>to</p>
-            <input id = "maxInputBox" type = 'text' placeholder = 'Maximum value' onChange={(e) => handleChange(e, 'MAX')} ></input>
+        <div>
+            <div className = 'filterBar'>
+                <p className='filterBarLabel'>
+                    Only show transactions between
+                </p>
+                <input id = "minInputBox" type = 'text' placeholder = 'Minimum value' onChange={(e) => setMinPrice(e.target.value)} ></input>
+                <p className='filterBarLabel'>to</p>
+                <input id = "maxInputBox" type = 'text' placeholder = 'Maximum value' onChange={(e) => setMaxPrice(e.target.value)} ></input>
+                <Button
+                    variant="outlined"
+                    disabled={!inputValid}
+                    style={{color: 'grey', borderColor: 'grey'}}
+                    onClick={() => {
+                        updateMinCallback(minPrice);
+                        updateMaxCallback(maxPrice);
+                    }}
+                >Filter</Button>
+            </div>
+            <p className={inputValid ? 'filterBarWarningHidden' : 'filterBarWarning'}>Invalid Range. Please change your input.</p>
         </div>
     )
 }

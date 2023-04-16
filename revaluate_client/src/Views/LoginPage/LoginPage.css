@@ -1,0 +1,87 @@
+.loginPic {
+    height: 100vh;
+    width: 41.66vw;
+}
+
+.ssoButtonDiv {
+    margin: 1%;
+    margin-top: 2%;
+    text-align: left;
+}
+
+.ssoButton {
+    width: 15rem;
+    height: 3rem;
+    text-align: left;
+    border: none;
+    background-color: #2d3036;
+    margin-bottom: 0.8rem;
+}
+
+.ssoButton:hover {
+    background-color: #3b3b3b;
+}
+
+.loginPage {
+    height: 100vh;
+    background-image: url('login2.png');
+    background-size: cover;
+    margin: 0%;
+    padding: 0%;
+}
+
+.loginCard {
+    background-color: #FFFFFF;
+    opacity: 0.95;
+    padding: 2%;
+    height: auto;
+    width: 60%;
+    margin: auto;
+    margin-top: 10%;
+    border-radius: 1rem;
+    box-shadow: 0.3rem 0.3rem rgba(10, 10, 10, 0.3);
+}
+
+.loginLeft {
+    border: 2px solid #9f9f9f;
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+    padding: 1%;
+}
+
+.loginPartitionTitle {
+    margin: 0%;
+    padding: 0%;
+    margin-bottom: 2%;
+    font-size: 2rem;
+    font-family: 'Open Sans';
+    font-weight: 600;
+}
+
+.loginPartitionSubtitle {
+    margin: 0%;
+    padding: 0%;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    font-size: 1.2rem;
+    font-family: 'Open Sans';
+    font-weight: 600;
+}
+
+.loginRight {
+    padding: 1%;
+    padding-left: 2%;
+}
+
+.loginRight .loginPartitionTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: rgb(1, 106, 98);
+}
+
+.loginRight p {
+    padding: 0%;
+    margin-bottom: 5%;
+    font-size: 1.2rem;
+}

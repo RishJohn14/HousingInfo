@@ -1,16 +1,34 @@
 import React, { useState } from "react";
 import "./SwitchButton.css";
-import { motion } from "framer-motion";
 
-function SwitchButton() {
-    const [selected, updateSelected] = useState(false);
+/**
+ * Switch Button component to toggle between buyer and seller on home page
+ * @param {callback}
+ * @returns Switch Button component
+ */
+function SwitchButton({ callback }) {
+    //state
+    const [isBuyer, updateIsBuyer] = useState(true);
 
-    return <motion.div animate className={selected ? "switchButton on" : "switchButton off"} onClick={() => updateSelected(!selected)}>
-        <motion.div animate>
-            <p className="text">BUY A HOUSE</p>
-        </motion.div>
-        <p className="unselected-text">SELL A HOUSE</p>
-    </motion.div>
+    //handle click by updating state and parent component using callback
+    function handleClick() {
+      updateIsBuyer(!isBuyer);
+      callback(!isBuyer);
+    }
+
+    return <label className="switchButtonContainer">
+    <input
+        type="checkbox"
+        checked={!isBuyer}
+        onChange={handleClick}
+        className="invisibleCheckbox"
+    />
+    <div className="switchButton" />
+    <div className="switchLabels">
+      <span>Buy a house</span>
+      <span>Sell a house</span>
+    </div>
+  </label>
 }
 
 export default SwitchButton;

@@ -16,127 +16,57 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.listen(process.env.PORT, () => {
-    console.log(`Express server is up`);
+  console.log(`Express server is up`);
 });
-
-/*
- * Models
- */
-const houseData = require("./Models/HouseData");
-const chart = require("./Models/Chart");
-const infoCard = require("./Models/InfoCard");
-const map = require("./Models/Map");
-const pin = require("./Models/Pin");
-const searchForm = require("./Models/SearchForm");
 
 /*
  * Controllers
  */
+const ChartController = require('./Controllers/ChartController');
+const MapController = require('./Controllers/MapController');
+const StatsController = require('./Controllers/StatsController');
+const DetailsController = require('./Controllers/DetailsController');
+const ForumController = require('./Controllers/ForumController');
+const ValidationController = require('./Controllers/ValidationController');
+
+/*
+ * Routes (API endpoints)
+ */
 app.get("/", (req, res) => {
+  console.log(req.query);
   res.send("Welcome to REvaluate Server");
 });
 
-//search manager
-app.get("/search", (req, res) => {
-    res.send("Search Manager");
-});
+app.get('/getTransactionsFromPin', MapController.getTransactionsFromPin)
 
-//chart manager
-app.get("/chart", (req, res) => {
-    res.send("Chart Manager");
-});
+app.get("/neighbourhoodAffordability", ChartController.getNeighbourhoodAffordability);
 
-//details manager
-app.get("/details", async (req, res) => {
-  houseData
-    .find(
-      { town: "ANG MO KIO", flat_type: "5 ROOM" },
-      {
-        flat_type: 1,
-        floor_area_sqm: 1,
-        storey_range: 1,
-        resale_price: 1,
-        remaining_lease: 1,
-        street_name: 1,
-        lease_commence_date: 1,
-      }
-    )
-    .then((response) => {
-      /* can be found */
-      var price = [];
-      var flat_size = 0;
-      var remaining_lease = 0;
-      var lease_commence_date = 0;
-      var street_name = {};
-      var storey_range = {};
-      var length = response.length;
+app.get("/flatStatsByType", StatsController.getFlatStatsByType);
 
-      for (var i = 0; i < length; i++) {
-        price.push(response[i].resale_price);
-        flat_size = flat_size + response[i].floor_area_sqm;
-        remaining_lease = remaining_lease + response[i].remaining_lease;
-        lease_commence_date =
-          lease_commence_date + response[i].lease_commence_date;
-        street_name[response[i].street_name] = street_name[
-          response[i].street_name
-        ]
-          ? 0
-          : street_name[response[i].street_name]++;
-        storey_range[response[i].storey_range] = storey_range[
-          response[i].storey_range
-        ]
-          ? 0
-          : storey_range[response[i].storey_range]++;
-      }
+app.get("/validateform", ValidationController.validateForm);
 
-      price.sort();
-      var most_popular_streets = Object.keys(street_name).map((street) => [
-        street,
-        street_name[street],
-      ]);
-      most_popular_streets.sort((first, second) => second[1] - first[1]);
-      var most_popular_storey = Object.keys(storey_range).map((storey) => [
-        storey,
-        storey_range[storey],
-      ]);
-      most_popular_storey.sort((first, second) => second[1] - first[1]);
-      const currentYear = new Date().getFullYear();
-      var avg_house_age =
-        currentYear - Math.floor(lease_commence_date / length);
+app.get("/generalPricingChart", ChartController.getGeneralPricingChartData);
 
-      const result = {
-        "25th_percentile_price": price[Math.floor(0.25 * (length + 1) - 1)],
-        "50th_percentile_price": price[Math.floor(0.5 * (length + 1) - 1)],
-        "75th_percentile_price": price[Math.floor(0.75 * (length + 1) - 1)],
-        avg_flat_size: flat_size / length,
-        avg_remaining_lease: remaining_lease / length,
-        avg_house_age: avg_house_age,
-        most_common_street: most_popular_streets.slice(0, 5),
-        most_common_storey: most_popular_storey.length ? most_popular_storey[0][0] : 0,
-      };
-      res.send(result);
-    })
-    .catch((err) => {
-      console.log(err);
-    }); /* cannot be found */
-});
+app.get("/neighbourhoodPriceComparisonChart", ChartController.getNeighbourhoodPriceComparisonChart);
 
-//map manager
-app.get("/map", async (req, res) => {
-  await houseData
-    .aggregate([
-      {
-        $group: {
-          _id: "$latitude",
-          longitude: { $addToSet: "$longitude" },
-        },
-      },
-    ])
-    .then((response) => {
-      /* can be found */
-      res.send(response);
-    })
-    .catch((err) => {
-      console.log(err);
-    }); /* cannot be found */
-});
+app.get("/details", DetailsController.getDetails);
+
+app.get("/map", MapController.getMapData);
+
+app.get("/neighbourhoodCountChart", ChartController.getNeighbourhoodCountChart);
+
+app.get("/neighbourhoodStatistics", StatsController.getNeighbourhoodStatistics);
+
+app.get("/roboadvisor", DetailsController.getAdvice);
+
+app.get('/forumTopics', ForumController.getForumTopics);
+
+app.get('/forumPosts', ForumController.getForumPosts);
+
+app.post('/addpost', ForumController.addPost);
+
+app.get('/getpostdata', ForumController.getPostDataById);
+
+app.post('/addcomment', ForumController.addComment);
+
+app.get('/correlation', StatsController.getCorrelation);

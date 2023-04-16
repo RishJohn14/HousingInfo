@@ -24,9 +24,16 @@ import {
     Legend
   );
 
+/**
+ * This is a customised Chart component that uses Chart.js charts but encapsulated some repeated styling
+ * @param {type, data, title, labels, hideLegends, width, height} props 
+ * @returns Chart component
+ */
 function Chart(props) {
+    //data passed in from parent component
     const { type, data, title, labels, hideLegends, width, height } = props;
 
+    //standardised some options for all charts used in the app
     const options = {
         responsive: true,
         plugins: {
